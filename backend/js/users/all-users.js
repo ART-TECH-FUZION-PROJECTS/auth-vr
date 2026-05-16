@@ -185,6 +185,11 @@
             if (window.authmeToast) window.authmeToast('success', 'User list refreshed successfully');
         });
 
+        document.getElementById('authme-users-export-btn')?.addEventListener('click', () => {
+            const exportUrl = `${authme_admin.ajax_url}?action=authme_admin_export_csv&type=users&_wpnonce=${authme_admin.nonce}`;
+            window.location.href = exportUrl;
+        });
+
         document.getElementById('authme-users-btn-prev')?.addEventListener('click', () => {
             if (state.page > 1) {
                 state.page--;

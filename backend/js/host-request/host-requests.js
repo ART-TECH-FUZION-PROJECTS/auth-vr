@@ -365,6 +365,15 @@
             }
         });
 
+        // Export CSV Handler
+        var exportBtn = document.getElementById('amh-export-btn');
+        if (exportBtn) {
+            exportBtn.addEventListener('click', function () {
+                var exportUrl = authme_admin.ajax_url + '?action=authme_admin_export_csv&type=hosts&_wpnonce=' + authme_admin.nonce;
+                window.location.href = exportUrl;
+            });
+        }
+
         // Pagination hooks
         var prevBtn = document.getElementById('amh-btn-prev');
         var nextBtn = document.getElementById('amh-btn-next');

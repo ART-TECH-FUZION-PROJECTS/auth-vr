@@ -59,6 +59,14 @@ if (! defined('ABSPATH')) {
                         <span class="authme-users-table-section-subtitle">Showing all accounts with traveler role</span>
                     </div>
                     <div class="authme-users-table-actions-group">
+                        <button class="authme-users-filter-btn" id="authme-users-export-btn" >
+                            <svg class="authme-users-filter-btn-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v4"></path>
+                                <polyline points="7 10 12 15 17 10"></polyline>
+                                <line x1="12" y1="15" x2="12" y2="3"></line>
+                            </svg>
+                            Export CSV
+                        </button>
                         <button class="authme-users-filter-btn" id="authme-users-refresh-btn">
                             <svg class="authme-users-filter-btn-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <polyline points="23 4 23 10 17 10"></polyline>

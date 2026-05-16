@@ -32,6 +32,7 @@ class AuthMe_Admin {
         add_action( 'wp_ajax_authme_admin_get_user_details', array( $this, 'ajax_get_user_details' ) );
         add_action( 'wp_ajax_authme_admin_update_user', array( $this, 'ajax_update_user_details' ) );
         add_action( 'wp_ajax_authme_admin_check_username', array( $this, 'ajax_check_username_availability' ) );
+        add_action( 'wp_ajax_authme_admin_export_csv', array( $this, 'ajax_export_csv' ) );
         
         // Admin Footer Injections
         add_action( 'admin_footer', array( $this, 'inject_admin_global_ui' ) );
@@ -718,6 +719,122 @@ class AuthMe_Admin {
         }
 
         wp_send_json_success( array( 'message' => 'Username is available.', 'available' => true ) );
+    }
+
+    /**
+     * AJAX handler for CSV Export.
+     */
+    public function ajax_export_csv() {
+        check_ajax_referer( 'authme_admin_nonce', 'nonce' );
+        if ( ! current_user_can( 'manage_options' ) ) {
+            wp_die( 'Unauthorized.' );
+        }
+
+        $type = isset( $_GET['type'] ) ? sanitize_text_field( $_GET['type'] ) : '';
+        
+        if ( $type === 'users' ) {
+            $this->export_users_csv();
+        } elseif ( $type === 'hosts' ) {
+            $this->export_hosts_csv();
+        } else {
+            wp_die( 'Invalid export type.' );
+        }
+    }
+
+    /**
+     * Export Travelers to CSV.
+     */
+    private function export_users_csv() {
+        $args = array(
+            'role'    => 'traveller',
+            'orderby' => 'user_registered',
+            'order'   => 'DESC',
+            'number'  => -1, // Export all
+        );
+        $users = get_users( $args );
+
+        $filename = 'authme-travelers-' . date('Y-m-d') . '.csv';
+        
+        header( 'Content-Type: text/csv; charset=utf-8' );
+        header( 'Content-Disposition: attachment; filename=' . $filename );
+        
+        $output = fopen( 'php://output', 'w' );
+        // Added S.No and User-ID as requested
+        fputcsv( $output, array( 'S.No', 'User-ID', 'Username', 'Email', 'Full Name', 'Mobile', 'Joined Date' ) );
+
+        $sno = 1;
+        foreach ( $users as $user ) {
+            $mobile = get_user_meta( $user->ID, 'mobile_number', true );
+            // Force string formatting for Excel by adding a tab prefix to prevent scientific notation
+            $mobile_formatted = $mobile ? "\t" . $mobile : 'N/A';
+            
+            fputcsv( $output, array(
+                $sno++,
+                $user->ID,
+                $user->user_login,
+                $user->user_email,
+                $user->display_name,
+                $mobile_formatted,
+                get_date_from_gmt( $user->user_registered, 'Y-m-d H:i:s' ),
+            ) );
+        }
+        
+        fclose( $output );
+        exit;
+    }
+
+    /**
+     * Export Host Applications to CSV.
+     */
+    private function export_hosts_csv() {
+        global $wpdb;
+        $table_name = AuthMe_DB_Schema::host_request_table();
+        $results = $wpdb->get_results( "SELECT * FROM $table_name ORDER BY date DESC" );
+
+        $filename = 'authme-host-applications-' . date('Y-m-d') . '.csv';
+        
+        header( 'Content-Type: text/csv; charset=utf-8' );
+        header( 'Content-Disposition: attachment; filename=' . $filename );
+        
+        $output = fopen( 'php://output', 'w' );
+        // S.No, Application ID, Name, Username, Email, Phone, Status, Date Time, Aadhar Front, Aadhar Back, PAN Card
+        fputcsv( $output, array( 'S.No', 'Application ID', 'Name', 'Username', 'Email', 'Phone', 'Status', 'Date Time', 'Aadhar Front', 'Aadhar Back', 'PAN Card' ) );
+
+        $sno = 1;
+        foreach ( $results as $row ) {
+            $user_data = json_decode( $row->user_data, true ) ?: array();
+            
+            $name     = isset( $user_data['fullname'] ) ? $user_data['fullname'] : 'N/A';
+            $username = isset( $user_data['username'] ) ? $user_data['username'] : 'N/A';
+            $email    = isset( $user_data['email'] ) ? $user_data['email'] : 'N/A';
+            $phone    = isset( $user_data['mobile'] ) ? $user_data['mobile'] : 'N/A';
+            
+            // Handle multiple documents (Aadhar Front, Aadhar Back, PAN)
+            $docs = isset( $user_data['documents'] ) ? $user_data['documents'] : array();
+            $doc1 = isset( $docs['aadharf']['url'] ) ? $docs['aadharf']['url'] : 'N/A';
+            $doc2 = isset( $docs['aadharb']['url'] ) ? $docs['aadharb']['url'] : 'N/A';
+            $doc3 = isset( $docs['pan']['url'] ) ? $docs['pan']['url'] : 'N/A';
+            
+            // Force string for phone
+            $phone_formatted = ( $phone !== 'N/A' ) ? "\t" . $phone : 'N/A';
+
+            fputcsv( $output, array(
+                $sno++,
+                $row->id,
+                $name,
+                $username,
+                $email,
+                $phone_formatted,
+                ucfirst( $row->status ),
+                $row->date,
+                $doc1,
+                $doc2,
+                $doc3
+            ) );
+        }
+        
+        fclose( $output );
+        exit;
     }
 
     /**

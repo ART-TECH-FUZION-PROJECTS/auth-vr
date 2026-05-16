@@ -8,14 +8,6 @@
  * @package AuthMe
  * ============================================ */
 
-.amh-main-container {
-    max-width: 100%;
-    margin: 20px 20px 20px 0;
-    position: relative;
-    z-index: 1;
-    font-family: var(--authme-font);
-}
-
 .amh-header-section {
     margin-bottom: 36px;
 }
