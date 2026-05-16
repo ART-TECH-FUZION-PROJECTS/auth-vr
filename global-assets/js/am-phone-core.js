@@ -1,4 +1,7 @@
-const countries = [
+(function() {
+  if (window.PhoneCore) return;
+
+  const countries = [
   // ==================== South Asia (5) ====================
   { name: "India", code: "+91", flag: "🇮🇳", min: 10, max: 10 },
   { name: "Pakistan", code: "+92", flag: "🇵🇰", min: 10, max: 10 },
@@ -330,5 +333,7 @@ window.PhoneCore = (function () {
     validate,
     format
   };
+
+})();
 
 })();

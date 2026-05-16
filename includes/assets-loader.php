@@ -86,6 +86,10 @@ class AuthMe_Assets_Loader {
                 'dir' => $base_dir . 'frontend/css/host-request.css',
                 'url' => $base_url . 'frontend/css/host-request.css',
             ),
+            'css_google_auth' => array(
+                'dir' => $base_dir . 'components/google-auth/google-auth.css',
+                'url' => $base_url . 'components/google-auth/google-auth.css',
+            ),
             'css_otp'       => array(
                 'dir' => $base_dir . 'frontend/css/otp.css',
                 'url' => $base_url . 'frontend/css/otp.css',
@@ -132,6 +136,10 @@ class AuthMe_Assets_Loader {
                 'dir' => $base_dir . 'frontend/js/host-request.js',
                 'url' => $base_url . 'frontend/js/host-request.js',
             ),
+            'js_google_auth' => array(
+                'dir' => $base_dir . 'components/google-auth/google-auth.js',
+                'url' => $base_url . 'components/google-auth/google-auth.js',
+            ),
             'js_otp'        => array(
                 'dir' => $base_dir . 'frontend/js/otp.js',
                 'url' => $base_url . 'frontend/js/otp.js',
@@ -153,6 +161,9 @@ class AuthMe_Assets_Loader {
             ),
             'tpl_otp'       => array(
                 'dir' => $base_dir . 'frontend/template/otp.php',
+            ),
+            'tpl_google_auth' => array(
+                'dir' => $base_dir . 'components/google-auth/google-auth.php',
             ),
             'tpl_toaster'   => array(
                 'dir' => $base_dir . 'global-assets/template/toaster.php',
@@ -315,7 +326,7 @@ class AuthMe_Assets_Loader {
     public static function enqueue_frontend() {
 
         /* ── CSS Files ───────────────────── */
-        $css_files = array( 'global', 'overlay', 'login', 'register', 'otp', 'toaster', 'confirm', 'forgot_password', 'new_password', 'host_request' );
+        $css_files = array( 'global', 'overlay', 'login', 'register', 'otp', 'toaster', 'confirm', 'forgot_password', 'new_password', 'host_request', 'google_auth' );
 
         foreach ( $css_files as $name ) {
             $key = 'css_' . $name;
@@ -345,6 +356,7 @@ class AuthMe_Assets_Loader {
             'forgot_password' => array( 'authme-global', 'authme-toaster', 'authme-overlay' ),
             'new_password'    => array( 'authme-global', 'authme-toaster', 'authme-overlay' ),
             'host_request'    => array( 'authme-global', 'authme-toaster', 'authme-confirm', 'authme-phone_core' ),
+            'google_auth'     => array( 'authme-global', 'authme-toaster' ),
         );
 
         foreach ( $js_files as $name => $deps ) {

@@ -112,13 +112,11 @@ if (! defined('ABSPATH')) {
 
         <!-- Submit Button -->
         <button type="submit" id="authme-reg-submit-btn" class="authme-btn authme-btn-primary" disabled>Send OTP</button>
-        <button type="submit" id="authme-reg-cwg-btn" class="authme-btn authme-btn-primary authme-btn-cw-google">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" id="authme-cw-google-icon">
-                <g fill="currentColor">
-                    <path d="M21.15 12.2175C21.15 17.5238 17.5162 21.3 12.15 21.3C7.005 21.3 2.85 17.145 2.85 12C2.85 6.855 7.005 2.7 12.15 2.7C14.655 2.7 16.7625 3.61875 18.3862 5.13375L15.855 7.5675C12.5437 4.3725 6.38625 6.7725 6.38625 12C6.38625 15.2438 8.9775 17.8725 12.15 17.8725C15.8325 17.8725 17.2125 15.2325 17.43 13.8638H12.15V10.665H21.0037C21.09 11.1413 21.15 11.5987 21.15 12.2175Z" />
-                </g>
-            </svg>
-            Continue with google </button>
+
+        <?php 
+            $google_auth_tpl = AuthMe_Assets_Loader::dir('tpl_google_auth');
+            if ($google_auth_tpl && file_exists($google_auth_tpl)) include $google_auth_tpl; 
+        ?>
 
     </form>
 

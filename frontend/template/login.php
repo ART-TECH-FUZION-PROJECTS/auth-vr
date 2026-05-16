@@ -55,6 +55,11 @@ if ( ! defined( 'ABSPATH' ) ) {
         <!-- Submit Button -->
         <button type="submit" id="authme-login-submit-btn" class="authme-btn authme-btn-primary" disabled>Login</button>
 
+        <?php 
+            $google_auth_tpl = AuthMe_Assets_Loader::dir('tpl_google_auth');
+            if ($google_auth_tpl && file_exists($google_auth_tpl)) include $google_auth_tpl; 
+        ?>
+
     </form>
 
     <!-- Switch to Register -->

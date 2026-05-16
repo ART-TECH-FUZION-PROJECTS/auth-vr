@@ -20,6 +20,9 @@ class AuthMe_Core {
     public function __construct() {
         // Enqueue Frontend Assets
         add_action('wp_enqueue_scripts', array('AuthMe_Assets_Loader', 'enqueue_frontend'));
+        
+        // Pass Google Client ID to JS
+        add_action('wp_enqueue_scripts', array($this, 'pass_google_client_id'), 15);
 
         // Global UI Components (Toaster, Confirmation)
         add_action('wp_footer', array($this, 'inject_global_ui'));
@@ -47,6 +50,22 @@ class AuthMe_Core {
 
         // Admin Panel Settings Link
         add_filter('plugin_action_links_' . AUTHME_PLUGIN_BASENAME, array($this, 'add_settings_link'));
+    }
+
+    /**
+     * Fetch Google Client ID from DB and pass to JS
+     */
+    public function pass_google_client_id() {
+        global $wpdb;
+        $table_name = $wpdb->prefix . 'admin_management';
+        
+        $suppress = $wpdb->suppress_errors();
+        $google_client_id = $wpdb->get_var( $wpdb->prepare( "SELECT value FROM $table_name WHERE name = %s", 'auth_client_id' ) );
+        $wpdb->suppress_errors( $suppress );
+
+        wp_localize_script( 'authme-global', 'authme_google_settings', array(
+            'client_id' => $google_client_id ? $google_client_id : ''
+        ) );
     }
 
     /**
@@ -124,6 +143,7 @@ class AuthMe_Core {
             'authme_upload_host_document'  => array($authme_host, 'ajax_upload_host_document'),
             'authme_submit_host_request'   => array($authme_host, 'ajax_submit_host_request'),
             'authme_delete_host_document'  => array($authme_host, 'ajax_delete_host_document'),
+            'authme_google_auth_callback'  => array($authme_auth, 'ajax_google_auth_callback'),
         );
 
         foreach ($ajax_actions as $action => $callback) {

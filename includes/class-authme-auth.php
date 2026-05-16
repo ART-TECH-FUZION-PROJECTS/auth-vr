@@ -246,6 +246,7 @@ class AuthMe_Auth {
         update_user_meta( $user_id, 'is_email_verified', 1 );
         // Mobile number is NOT verified yet (no OTP sent to phone)
         update_user_meta( $user_id, 'is_number_verified', 0 );
+        update_user_meta( $user_id, 'auth_method', 'normal_auth' );
 
         // Auto-login the newly registered user
         wp_set_current_user( $user_id );
@@ -327,6 +328,191 @@ class AuthMe_Auth {
         wp_send_json_success( array(
             'message' => 'Password reset successfully! You can now log in.',
         ) );
+    }
+
+    /* ──────────────────────────────────────────────────
+     * AJAX: Google Auth Callback
+     * ────────────────────────────────────────────────── */
+    public function ajax_google_auth_callback() {
+        check_ajax_referer( 'authme_nonce', 'nonce' );
+
+        $access_token = isset( $_POST['token'] ) ? sanitize_text_field( $_POST['token'] ) : '';
+
+        if ( empty( $access_token ) ) {
+            wp_send_json_error( array( 'message' => 'Authentication token missing.' ) );
+        }
+
+        // 1. Fetch Basic User Info
+        $userinfo_url = 'https://www.googleapis.com/oauth2/v3/userinfo?access_token=' . $access_token;
+        $response = wp_remote_get( $userinfo_url );
+
+        if ( is_wp_error( $response ) ) {
+            wp_send_json_error( array( 'message' => 'Failed to fetch user data from Google API.' ) );
+        }
+
+        $data = json_decode( wp_remote_retrieve_body( $response ), true );
+
+        if ( empty( $data['email'] ) ) {
+            wp_send_json_error( array( 'message' => 'Invalid data received from Google.' ) );
+        }
+
+        $email          = sanitize_email( $data['email'] );
+        $name           = isset( $data['name'] ) ? sanitize_text_field( $data['name'] ) : strstr($email, '@', true);
+        $profile_pic    = isset( $data['picture'] ) ? esc_url_raw( $data['picture'] ) : '';
+        $email_verified = !empty( $data['email_verified'] ) ? 1 : 0;
+
+        // 2. Fetch Phone Number (People API)
+        $people_url = 'https://people.googleapis.com/v1/people/me?personFields=phoneNumbers';
+        $people_response = wp_remote_get( $people_url, array(
+            'headers' => array( 'Authorization' => 'Bearer ' . $access_token )
+        ) );
+
+        $phone_number = '';
+        $is_number_verified = 0;
+
+        if ( ! is_wp_error( $people_response ) ) {
+            $people_data = json_decode( wp_remote_retrieve_body( $people_response ), true );
+            if ( ! empty( $people_data['phoneNumbers'] ) && is_array( $people_data['phoneNumbers'] ) ) {
+                $best_phone = '';
+                $best_phone_is_verified = 0;
+                
+                foreach ( $people_data['phoneNumbers'] as $phone ) {
+                    if ( ! empty( $phone['value'] ) ) {
+                        $is_verified = ! empty( $phone['metadata']['verified'] ) ? 1 : 0;
+                        
+                        // Extract canonicalForm as primary, fallback to value
+                        if ( ! empty( $phone['canonicalForm'] ) ) {
+                            $formatted_phone = sanitize_text_field( $phone['canonicalForm'] );
+                        } else {
+                            $formatted_phone = sanitize_text_field( $phone['value'] );
+                        }
+                        
+                        // Format mobile number without space
+                        $formatted_phone = str_replace( array(' ', '-', '(', ')'), '', $formatted_phone );
+
+                        // Take this phone if:
+                        // 1. We don't have a phone yet.
+                        // 2. OR the current best phone is NOT verified, but THIS one IS verified.
+                        if ( empty( $best_phone ) || ( $best_phone_is_verified === 0 && $is_verified === 1 ) ) {
+                            $best_phone = $formatted_phone;
+                            $best_phone_is_verified = $is_verified;
+                        }
+                    }
+                }
+                
+                if ( ! empty( $best_phone ) ) {
+                    $phone_number = $best_phone;
+                    $is_number_verified = $best_phone_is_verified;
+                }
+            }
+        }
+
+        // 3. Process User (Login or Create)
+        $user = get_user_by( 'email', $email );
+
+        if ( $user ) {
+            $existing_auth_method = get_user_meta( $user->ID, 'auth_method', true );
+
+            if ( $existing_auth_method !== 'google_auth' ) {
+                wp_send_json_error( array( 
+                    'message' => 'Account already exists. Please login with password.'
+                ) );
+            }
+
+            $has_phone = false;
+            // Existing User: Update Profile Pic and Phone if fetched
+            if ( ! empty( $profile_pic ) ) {
+                update_user_meta( $user->ID, 'profile_pic', $profile_pic );
+            }
+            if ( ! empty( $phone_number ) ) {
+                update_user_meta( $user->ID, 'mobile_number', $phone_number );
+                update_user_meta( $user->ID, 'is_number_verified', $is_number_verified );
+                $has_phone = true;
+            } else {
+                $existing_phone = get_user_meta( $user->ID, 'mobile_number', true );
+                $has_phone = ! empty( $existing_phone );
+            }
+
+            // Redirect if phone is missing
+            $redirect_url = '';
+            if ( ! $has_phone ) {
+                global $wpdb;
+                $table_name = $wpdb->prefix . 'admin_management';
+                $profile_page_id = $wpdb->get_var( $wpdb->prepare( "SELECT page_id FROM $table_name WHERE name = %s", 'My Profile' ) );
+                if ( $profile_page_id ) {
+                    $redirect_url = get_permalink( $profile_page_id );
+                }
+            }
+
+            // Set Auth Cookies
+            wp_set_current_user( $user->ID );
+            wp_set_auth_cookie( $user->ID, true );
+            do_action( 'wp_login', $user->user_login, $user );
+
+            wp_send_json_success( array(
+                'message'      => 'Welcome back, ' . esc_html( $user->display_name ) . '!',
+                'redirect_url' => $redirect_url
+            ) );
+        } else {
+            // New User: Create Account
+            $base_username = strstr($email, '@', true);
+            $username = $base_username;
+            $counter = 1;
+            while ( username_exists( $username ) ) {
+                $username = $base_username . $counter;
+                $counter++;
+            }
+
+            $user_id = wp_insert_user( array(
+                'user_login'      => $username,
+                'user_nicename'   => sanitize_title( $username ),
+                'user_email'      => $email,
+                'user_pass'       => wp_generate_password( 16, true ),
+                'display_name'    => $name,
+                'role'            => 'traveller',
+                'user_registered' => current_time( 'mysql' ),
+            ) );
+
+            if ( is_wp_error( $user_id ) ) {
+                wp_send_json_error( array( 'message' => 'Account creation failed: ' . $user_id->get_error_message() ) );
+            }
+
+            // Save Metadata
+            update_user_meta( $user_id, 'auth_method', 'google_auth' );
+            update_user_meta( $user_id, 'is_email_verified', $email_verified );
+            update_user_meta( $user_id, 'is_number_verified', $is_number_verified );
+            update_user_meta( $user_id, 'profile_pic', $profile_pic );
+            
+            $has_phone = false;
+            if ( ! empty( $phone_number ) ) {
+                update_user_meta( $user_id, 'mobile_number', $phone_number );
+                $has_phone = true;
+            }
+
+            // Explicitly set traveller capability (as per PRD)
+            update_user_meta( $user_id, 'wp_capabilities', array( 'traveller' => true ) );
+
+            // Redirect if phone is missing
+            $redirect_url = '';
+            if ( ! $has_phone ) {
+                global $wpdb;
+                $table_name = $wpdb->prefix . 'admin_management';
+                $profile_page_id = $wpdb->get_var( $wpdb->prepare( "SELECT page_id FROM $table_name WHERE name = %s", 'My Profile' ) );
+                if ( $profile_page_id ) {
+                    $redirect_url = get_permalink( $profile_page_id );
+                }
+            }
+
+            // Login
+            wp_set_current_user( $user_id );
+            wp_set_auth_cookie( $user_id, true );
+            do_action( 'wp_login', $username, get_userdata( $user_id ) );
+
+            wp_send_json_success( array(
+                'message'      => 'Account created successfully! Welcome, ' . esc_html( $name ) . '.',
+                'redirect_url' => $redirect_url
+            ) );
+        }
     }
 }
 
