@@ -182,17 +182,8 @@ class AuthMe_Assets_Loader {
             ),
 
             /* ── Mails ─────────────────────────── */
-            'tpl_email_otp' => array(
-                'dir' => $base_dir . 'mails/email-otp.php',
-            ),
-            'tpl_email_msg' => array(
-                'dir' => $base_dir . 'mails/email-msg.php',
-            ),
-            'tpl_email_details' => array(
-                'dir' => $base_dir . 'mails/email-details.php',
-            ),
-            'tpl_admin_email_host_request' => array(
-                'dir' => $base_dir . 'mails/email-admin-host-request.php',
+            'tpl_master_mail' => array(
+                'dir' => $base_dir . 'mails/master-mail-template.php',
             ),
 
             /* ── Admin Assets ───────────────────── */
@@ -249,9 +240,7 @@ class AuthMe_Assets_Loader {
             'tpl_confirm' => array(
                 'dir' => $base_dir . 'global-assets/template/confirmation.php',
             ),
-            'tpl_admin_email_host_request' => array(
-                'dir' => $base_dir . 'mails/email-admin-host-request.php',
-            ),
+
 
             /* ── Include (PHP Class) Files ──────── */
             'inc_db'        => array(
@@ -270,7 +259,7 @@ class AuthMe_Assets_Loader {
                 'dir' => $base_dir . 'includes/class-authme-host-request.php',
             ),
             'inc_email'     => array(
-                'dir' => $base_dir . 'includes/class-authme-email.php',
+                'dir' => $base_dir . 'mails/mail-controller.php',
             ),
             'inc_assets'    => array(
                 'dir' => $base_dir . 'includes/assets-loader.php',

@@ -236,14 +236,20 @@ class AuthMe_Host_Request {
             }
         }
 
-        // Send Email Notification to Admin
+        // Fetch the freshly saved data straight from DB to ensure integrity
+        $inserted_id = $wpdb->insert_id;
+        $saved_row = $wpdb->get_row( $wpdb->prepare( "SELECT user_data FROM {$this->table_name} WHERE id = %d", $inserted_id ) );
+        $saved_decoded = json_decode( $saved_row->user_data, true );
+
+        // Send Email Notification to Admin using DB data
         if ( class_exists( 'AuthMe_Email' ) ) {
             $email_handler = new AuthMe_Email();
-            $admin_email_data = array(
-                'username' => isset( $decoded['username'] ) ? sanitize_user( $decoded['username'] ) : 'N/A',
-                'email'    => isset( $decoded['email'] ) ? sanitize_email( $decoded['email'] ) : 'N/A',
-                'mobile'   => isset( $decoded['mobile'] ) ? sanitize_text_field( $decoded['mobile'] ) : 'N/A',
-            );
+            $admin_email_data = array();
+            foreach ( $saved_decoded as $key => $val ) {
+                if ( is_string( $val ) || is_numeric( $val ) ) {
+                    $admin_email_data[$key] = sanitize_text_field( $val );
+                }
+            }
             $email_handler->send_admin_host_request_notification( $admin_email_data );
         }
 

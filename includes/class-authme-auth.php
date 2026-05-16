@@ -168,6 +168,10 @@ class AuthMe_Auth {
             wp_set_auth_cookie( $user->ID, $remember );
             do_action( 'wp_login', $user->user_login, $user );
 
+            // Send login alert email
+            $email_handler = new AuthMe_Email();
+            $email_handler->send_email( 'login_alert', $user->user_email );
+
             wp_send_json_success( array(
                 'message' => 'Login successful! Welcome back, ' . esc_html( $user->display_name ) . '.',
             ) );
@@ -251,6 +255,19 @@ class AuthMe_Auth {
         // Auto-login the newly registered user
         wp_set_current_user( $user_id );
         wp_set_auth_cookie( $user_id, true );
+
+        // Send registration success email
+        $email_handler = new AuthMe_Email();
+        $new_user = get_userdata( $user_id );
+        $saved_mobile = get_user_meta( $user_id, 'mobile_number', true );
+        $all_details = array(
+            'username' => $new_user->user_login,
+            'email'    => $new_user->user_email,
+        );
+        if ( ! empty( $saved_mobile ) ) {
+            $all_details['mobile'] = $saved_mobile;
+        }
+        $email_handler->send_email( 'register_success', $new_user->user_email, array( 'all_details' => $all_details ) );
 
         wp_send_json_success( array(
             'message'  => 'Registration successful! Welcome aboard.',
@@ -449,6 +466,10 @@ class AuthMe_Auth {
             wp_set_auth_cookie( $user->ID, true );
             do_action( 'wp_login', $user->user_login, $user );
 
+            // Send Google login alert email
+            $email_handler = new AuthMe_Email();
+            $email_handler->send_email( 'google_login_alert', $user->user_email );
+
             wp_send_json_success( array(
                 'message'      => 'Welcome back, ' . esc_html( $user->display_name ) . '!',
                 'redirect_url' => $redirect_url
@@ -507,6 +528,19 @@ class AuthMe_Auth {
             wp_set_current_user( $user_id );
             wp_set_auth_cookie( $user_id, true );
             do_action( 'wp_login', $username, get_userdata( $user_id ) );
+
+            // Send Google account created welcome email
+            $email_handler = new AuthMe_Email();
+            $new_user = get_userdata( $user_id );
+            $saved_mobile = get_user_meta( $user_id, 'mobile_number', true );
+            $all_details = array(
+                'username' => $new_user->user_login,
+                'email'    => $new_user->user_email,
+            );
+            if ( ! empty( $saved_mobile ) ) {
+                $all_details['mobile'] = $saved_mobile;
+            }
+            $email_handler->send_email( 'google_register_success', $new_user->user_email, array( 'all_details' => $all_details ) );
 
             wp_send_json_success( array(
                 'message'      => 'Account created successfully! Welcome, ' . esc_html( $name ) . '.',

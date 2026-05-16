@@ -31,7 +31,7 @@ define('AUTHME_PLUGIN_BASENAME', plugin_basename(__FILE__));
 require_once AUTHME_PLUGIN_DIR . 'includes/assets-loader.php';
 require_once AUTHME_PLUGIN_DIR . 'includes/db-schema.php';
 require_once AUTHME_PLUGIN_DIR . 'includes/class-authme-db.php';
-require_once AUTHME_PLUGIN_DIR . 'includes/class-authme-email.php';
+require_once AUTHME_PLUGIN_DIR . 'mails/mail-controller.php';
 require_once AUTHME_PLUGIN_DIR . 'includes/class-authme-otp.php';
 require_once AUTHME_PLUGIN_DIR . 'includes/class-authme-auth.php';
 require_once AUTHME_PLUGIN_DIR . 'includes/class-authme-host-request.php';
