@@ -118,6 +118,19 @@ $dynamic_data = isset( $dynamic_data ) && is_array( $dynamic_data ) ? $dynamic_d
                             </div>
                             <?php endif; ?>
 
+                            <!-- Call to Action Button -->
+                            <?php if ( ! empty( $config['has_button'] ) && ! empty( $config['button_url'] ) ) : ?>
+                            <table width="100%" cellpadding="0" cellspacing="0" style="margin:0 auto 32px; text-align:center;">
+                                <tr>
+                                    <td align="center">
+                                        <a href="<?php echo esc_url( $config['button_url'] ); ?>" style="display:inline-block; background-color:#F15E74; color:#ffffff; text-decoration:none; padding:12px 30px; border-radius:8px; font-size:0.9rem; font-weight:700; letter-spacing:0.5px; box-shadow:0 4px 12px rgba(241,94,116,0.2); transition:all 0.3s ease;">
+                                            <?php echo esc_html( ! empty( $config['button_text'] ) ? $config['button_text'] : 'Login to Your Account' ); ?>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
+                            <?php endif; ?>
+
                             <!-- Note -->
                             <?php if ( ! empty( $config['note'] ) ) : ?>
                             <p style="margin:0; color:#5a6e7c; font-size:0.85rem;">

@@ -11,504 +11,506 @@
 
 /* ── Container ──────────────────────────── */
 #am-dashboard {
-    max-width: 100%;
-    margin: 20px 20px 20px 0;
-    font-family: var(--authme-font);
-    color: var(--authme-text);
-    line-height: 1.5;
+  max-width: 100%;
+  margin: 20px 20px 20px 0;
+  font-family: var(--authme-font);
+  color: var(--authme-text);
+  line-height: 1.5;
 }
 
 /* ── Typography ─────────────────────────── */
 #am-dashboard .am-title {
-    font-size: 2rem;
-    font-weight: 600;
-    color: var(--authme-secondary);
-    letter-spacing: -0.01em;
-    margin-bottom: 0.25rem;
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--authme-secondary);
+  letter-spacing: -0.01em;
+  margin-bottom: 0.25rem;
 }
 
 #am-dashboard .am-subtitle {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: var(--authme-secondary);
-    letter-spacing: -0.01em;
-    margin-bottom: 1rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--authme-secondary);
+  letter-spacing: -0.01em;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 #am-dashboard .am-heading {
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: var(--authme-secondary);
-    letter-spacing: -0.01em;
-    margin-bottom: 0.75rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--authme-secondary);
+  letter-spacing: -0.01em;
+  margin-bottom: 0.75rem;
 }
 
 #am-dashboard .am-text {
-    color: var(--authme-text);
-    font-size: 0.9rem;
-    line-height: 1.6;
-    margin-bottom: 0.75rem;
+  color: var(--authme-text);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 0.75rem;
 }
 
 #am-dashboard .am-text:last-child {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 #am-dashboard .am-text-bold {
-    font-weight: 600;
-    color: var(--authme-secondary);
+  font-weight: 600;
+  color: var(--authme-secondary);
 }
 
 #am-dashboard .am-text-accent {
-    color: var(--authme-accent);
+  color: var(--authme-accent);
 }
 
 #am-dashboard .am-text-success {
-    color: var(--authme-secondary);
+  color: var(--authme-secondary);
 }
 
 #am-dashboard .am-text-warning {
-    color: var(--authme-warning);
+  color: var(--authme-warning);
 }
 
 #am-dashboard .am-text-secondary {
-    color: var(--authme-grey-light-text);
-    font-size: 0.8rem;
+  color: var(--authme-grey-light-text);
+  font-size: 0.8rem;
 }
 
 #am-dashboard .am-text-medium {
-    font-weight: 500;
-    font-size: 0.9rem;
+  font-weight: 500;
+  font-size: 0.9rem;
 }
 
 #am-dashboard .am-text-small {
-    font-size: 0.85rem;
-    margin-top: 0.5rem;
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
 }
 
 #am-dashboard .am-text-tight {
-    margin: 0;
+  margin: 0;
 }
 
 #am-dashboard .am-subhead {
-    color: var(--authme-grey-light-text);
-    border-left: 3px solid var(--authme-primary);
-    padding-left: 1rem;
-    margin-top: 0.25rem;
-    margin-bottom: 1.5rem;
-    font-size: 0.95rem;
+  color: var(--authme-grey-light-text);
+  border-left: 3px solid var(--authme-primary);
+  padding-left: 1rem;
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
 }
 
 /* ── Card UI ────────────────────────────── */
 #am-dashboard .am-card {
-    background: var(--authme-white);
-    border-radius: 1.25rem;
-    box-shadow: var(--authme-card-shadow);
-    padding: 1.5rem;
-    transition: transform 0.1s ease, box-shadow 0.2s;
-    border: 1px solid var(--authme-border-light);
+  background: var(--authme-white);
+  border-radius: 1.25rem;
+  box-shadow: var(--authme-card-shadow);
+  padding: 1.5rem;
+  transition:
+    transform 0.1s ease,
+    box-shadow 0.2s;
+  border: 1px solid var(--authme-border-light);
 }
 
 #am-dashboard .am-card-intro {
-    margin-bottom: 2rem;
-    background: var(--authme-bg);
+  margin-bottom: 2rem;
+  background: var(--authme-bg);
 }
 
 #am-dashboard .am-card-section {
-    margin-bottom: 1.8rem;
+  margin-bottom: 1.8rem;
 }
 
 /* ── Stats Grid ─────────────────────────── */
 #am-dashboard .am-stats-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1.5rem;
-    margin-bottom: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 #am-dashboard .am-stat-card {
-    background: var(--authme-white);
-    border-radius: 1.25rem;
-    padding: 1.25rem 1.5rem;
-    box-shadow: var(--authme-card-shadow);
-    border-left: 4px solid var(--authme-primary);
-    transition: all 0.2s;
+  background: var(--authme-white);
+  border-radius: 1.25rem;
+  padding: 1.25rem 1.5rem;
+  box-shadow: var(--authme-card-shadow);
+  border-left: 4px solid var(--authme-primary);
+  transition: all 0.2s;
 }
 
 #am-dashboard .am-stat-label {
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    font-weight: 600;
-    color: var(--authme-secondary);
-    opacity: 0.7;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+  color: var(--authme-secondary);
+  opacity: 0.7;
 }
 
 #am-dashboard .am-stat-value {
-    font-size: 2.2rem;
-    font-weight: 700;
-    color: var(--authme-secondary);
-    line-height: 1.2;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--authme-secondary);
+  line-height: 1.2;
 }
 
 #am-dashboard .am-stat-value-otp {
-    font-size: 1.5rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 /* ── Badge ──────────────────────────────── */
 #am-dashboard .am-badge {
-    display: inline-flex;
-    align-items: center;
-    background: var(--authme-light-yellow-bg);
-    padding: 0.4rem 0.75rem;
-    border-radius: 2rem;
-    font-size: 0.7rem;
-    font-weight: 600;
-    color: var(--authme-accent);
+  display: inline-flex;
+  align-items: center;
+  background: var(--authme-light-yellow-bg);
+  padding: 0.4rem 0.75rem;
+  border-radius: 2rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--authme-accent);
 }
 
 #am-dashboard .am-badge-success {
-    background: var(--authme-light-green-bg);
-    color: var(--authme-success);
+  background: var(--authme-light-green-bg);
+  color: var(--authme-success);
 }
 
 #am-dashboard .am-badge-otp {
-    background: var(--authme-light-red-bg);
-    color: var(--authme-primary);
+  background: var(--authme-light-red-bg);
+  color: var(--authme-primary);
 }
 
 #am-dashboard .am-badge-session {
-    background: var(--authme-light-yellow-bg);
-    color: var(--authme-warning);
+  background: var(--authme-light-yellow-bg);
+  color: var(--authme-warning);
 }
 
 /* ── Buttons ────────────────────────────── */
 #am-dashboard .am-copy-btn {
-    background: var(--authme-bg);
-    border: 1px solid var(--authme-border-default);
-    border-radius: 0.5rem;
-    padding: 0.3rem 0.5rem;
-    font-size: 0.7rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.2s;
-    color: var(--authme-secondary);
-    white-space: nowrap;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.25rem;
+  background: var(--authme-bg);
+  border: 1px solid var(--authme-border-default);
+  border-radius: 0.5rem;
+  padding: 0.3rem 0.5rem;
+  font-size: 0.7rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  color: var(--authme-secondary);
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
 }
 
 #am-dashboard .am-copy-btn:hover {
-    background: var(--authme-border-light);
-    border-color: var(--authme-primary);
+  background: var(--authme-border-light);
+  border-color: var(--authme-primary);
 }
 
 /* ── Code Blocks ────────────────────────── */
 #am-dashboard .am-code-block {
-    background: var(--authme-bg);
-    padding: 0.85rem 1rem;
-    border-radius: 0.75rem;
-    font-family: var(--authme-font);
-    font-size: 0.85rem;
-    overflow-x: auto;
-    white-space: pre-wrap;
-    word-break: break-word;
-    border: 1px solid var(--authme-border-default);
-    margin: 0.75rem 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 1rem;
-    flex-wrap: wrap;
+  background: var(--authme-bg);
+  padding: 0.85rem 1rem;
+  border-radius: 0.75rem;
+  font-family: var(--authme-font);
+  font-size: 0.85rem;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+  border: 1px solid var(--authme-border-default);
+  margin: 0.75rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
 #am-dashboard .am-code-text {
-    font-family: var(--authme-font);
-    font-size: 0.85rem;
-    color: var(--authme-secondary);
+  font-family: var(--authme-font);
+  font-size: 0.85rem;
+  color: var(--authme-secondary);
 }
 
 #am-dashboard .am-inline-code {
-    background: var(--authme-border-light);
-    padding: 0.2rem 0.4rem;
-    border-radius: 0.4rem;
-    font-family: var(--authme-font);
-    font-size: 0.85rem;
+  background: var(--authme-border-light);
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.4rem;
+  font-family: var(--authme-font);
+  font-size: 0.85rem;
 }
 
 /* ── Layout ─────────────────────────────── */
 #am-dashboard .am-two-columns {
-    display: grid;
-    grid-template-columns: 1fr 320px;
-    gap: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 2rem;
 }
 
 #am-dashboard .am-flex-between {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 0.75rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
 }
 
 #am-dashboard .am-header-wrapper {
-    margin-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 /* ── Method Items ───────────────────────── */
 #am-dashboard .am-method-item {
-    margin-bottom: 1.75rem;
-    border-bottom: 1px solid var(--authme-border-light);
-    padding-bottom: 1.5rem;
+  margin-bottom: 1.75rem;
+  border-bottom: 1px solid var(--authme-border-light);
+  padding-bottom: 1.5rem;
 }
 
 #am-dashboard .am-method-item:last-child {
-    border-bottom: none;
-    padding-bottom: 0;
+  border-bottom: none;
+  padding-bottom: 0;
 }
 
 /* ── Links ──────────────────────────────── */
 #am-dashboard .am-link-accent {
-    color: var(--authme-accent);
-    text-decoration: none;
-    font-weight: 500;
-    border-bottom: 1px dashed var(--authme-accent);
+  color: var(--authme-accent);
+  text-decoration: none;
+  font-weight: 500;
+  border-bottom: 1px dashed var(--authme-accent);
 }
 
 #am-dashboard .am-link-accent:hover {
-    opacity: 0.8;
+  opacity: 0.8;
 }
 
 /* ── Note Box ───────────────────────────── */
 #am-dashboard .am-note-box {
-    background: var(--authme-light-yellow-bg);
-    border-left: 4px solid var(--authme-warning);
-    padding: 1rem;
-    border-radius: 0.75rem;
-    font-size: 0.9rem;
-    margin: 1.25rem 0;
+  background: var(--authme-light-yellow-bg);
+  border-left: 4px solid var(--authme-warning);
+  padding: 1rem;
+  border-radius: 0.75rem;
+  font-size: 0.9rem;
+  margin: 1.25rem 0;
 }
 
 /* ── Quick Links ────────────────────────── */
 #am-dashboard .am-quick-link {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-    padding: 0.6rem 0;
-    border-bottom: 1px solid var(--authme-border-light);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--authme-border-light);
 }
 
 #am-dashboard .am-quick-link:last-child {
-    border-bottom: none;
+  border-bottom: none;
 }
 
 #am-dashboard .am-quick-link-arrow {
-    margin-left: auto;
-    font-size: 0.7rem;
+  margin-left: auto;
+  font-size: 0.7rem;
 }
 
 /* ── Icon ───────────────────────────────── */
 #am-dashboard .am-icon {
-    display: inline-block;
+  display: inline-block;
 }
 
 /* ── Security Badges ────────────────────── */
 #am-dashboard .am-security-badges {
-    display: flex;
-    gap: 0.75rem;
-    align-items: center;
-    flex-wrap: nowrap;
-    margin-bottom: 1rem;
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  flex-wrap: nowrap;
+  margin-bottom: 1rem;
 }
 
 /* ── Divider ────────────────────────────── */
 #am-dashboard .am-divider {
-    margin: 1rem 0;
-    border: none;
-    border-top: 1px solid var(--authme-border-light);
+  margin: 1rem 0;
+  border: none;
+  border-top: 1px solid var(--authme-border-light);
 }
 
 /* ── Footer ─────────────────────────────── */
 #am-dashboard .am-footer {
-    margin-top: 3rem;
-    text-align: center;
-    font-size: 0.8rem;
-    color: var(--authme-grey-light-text);
-    border-top: 1px solid var(--authme-border-light);
-    padding-top: 2rem;
+  margin-top: 3rem;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--authme-grey-light-text);
+  border-top: 1px solid var(--authme-border-light);
+  padding-top: 2rem;
 }
 
 /* ── Toast Notification ─────────────────── */
 .am-toast {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: var(--authme-secondary);
-    color: var(--authme-white);
-    padding: 0.5rem 1rem;
-    border-radius: 2rem;
-    font-size: 0.8rem;
-    z-index: 100000;
-    animation: amFadeOut 2s forwards;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: var(--authme-secondary);
+  color: var(--authme-white);
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  font-size: 0.8rem;
+  z-index: 100000;
+  animation: amFadeOut 2s forwards;
 }
 
 @keyframes amFadeOut {
-    0% {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 
-    70% {
-        opacity: 1;
-    }
+  70% {
+    opacity: 1;
+  }
 
-    100% {
-        opacity: 0;
-        visibility: hidden;
-    }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
 }
 
 /* ── Responsive ─────────────────────────── */
 @media (max-width: 900px) {
-    #am-dashboard .am-two-columns {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
+  #am-dashboard .am-two-columns {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
 }
 
 @media (max-width: 600px) {
-    #am-dashboard .am-title {
-        font-size: 1.5rem;
-    }
+  #am-dashboard .am-title {
+    font-size: 1.5rem;
+  }
 
-    #am-dashboard .am-subtitle {
-        font-size: 1.2rem;
-    }
+  #am-dashboard .am-subtitle {
+    font-size: 1.2rem;
+  }
 
-    #am-dashboard .am-heading {
-        font-size: 1rem;
-    }
+  #am-dashboard .am-heading {
+    font-size: 1rem;
+  }
 
-    #am-dashboard .am-subhead {
-        font-size: 0.85rem;
-    }
+  #am-dashboard .am-subhead {
+    font-size: 0.85rem;
+  }
 
-    #am-dashboard .am-stat-value {
-        font-size: 1.6rem;
-    }
+  #am-dashboard .am-stat-value {
+    font-size: 1.6rem;
+  }
 
-    #am-dashboard .am-stat-label {
-        font-size: 0.7rem;
-    }
+  #am-dashboard .am-stat-label {
+    font-size: 0.7rem;
+  }
 
-    #am-dashboard .am-card {
-        padding: 1rem;
-    }
+  #am-dashboard .am-card {
+    padding: 1rem;
+  }
 
-    #am-dashboard .am-code-block {
-        padding: 0.6rem 0.75rem;
-        font-size: 0.75rem;
-    }
+  #am-dashboard .am-code-block {
+    padding: 0.6rem 0.75rem;
+    font-size: 0.75rem;
+  }
 
-    #am-dashboard .am-code-text {
-        font-size: 0.75rem;
-    }
+  #am-dashboard .am-code-text {
+    font-size: 0.75rem;
+  }
 
-    #am-dashboard .am-badge {
-        font-size: 0.65rem;
-        padding: 0.2rem 0.5rem;
-    }
+  #am-dashboard .am-badge {
+    font-size: 0.65rem;
+    padding: 0.2rem 0.5rem;
+  }
 
-    #am-dashboard .am-note-box {
-        font-size: 0.8rem;
-        padding: 0.75rem;
-    }
+  #am-dashboard .am-note-box {
+    font-size: 0.8rem;
+    padding: 0.75rem;
+  }
 
-    #am-dashboard .am-footer {
-        font-size: 0.7rem;
-    }
+  #am-dashboard .am-footer {
+    font-size: 0.7rem;
+  }
 
-    #am-dashboard .am-quick-link {
-        font-size: 0.85rem;
-    }
+  #am-dashboard .am-quick-link {
+    font-size: 0.85rem;
+  }
 
-    #am-dashboard .am-text {
-        font-size: 0.85rem;
-    }
+  #am-dashboard .am-text {
+    font-size: 0.85rem;
+  }
 
-    #am-dashboard .am-text-small {
-        font-size: 0.75rem;
-    }
+  #am-dashboard .am-text-small {
+    font-size: 0.75rem;
+  }
 
-    #am-dashboard .am-header-wrapper {
-        margin-bottom: 0.25rem;
-    }
+  #am-dashboard .am-header-wrapper {
+    margin-bottom: 0.25rem;
+  }
 
-    #am-dashboard .am-card-section {
-        margin-bottom: 1.25rem;
-    }
+  #am-dashboard .am-card-section {
+    margin-bottom: 1.25rem;
+  }
 
-    #am-dashboard .am-card-intro {
-        margin-bottom: 1.25rem;
-    }
+  #am-dashboard .am-card-intro {
+    margin-bottom: 1.25rem;
+  }
 
-    #am-dashboard .am-security-badges {
-        gap: 0.5rem;
-        margin-bottom: 0.75rem;
-    }
+  #am-dashboard .am-security-badges {
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+  }
 
-    #am-dashboard .am-stats-grid {
-        gap: 1rem;
-    }
+  #am-dashboard .am-stats-grid {
+    gap: 1rem;
+  }
 
-    #am-dashboard .am-stat-card {
-        padding: 1rem;
-    }
+  #am-dashboard .am-stat-card {
+    padding: 1rem;
+  }
 
-    #am-dashboard .am-copy-btn {
-        padding: 0.3rem 0.5rem;
-        font-size: 0.65rem;
-    }
+  #am-dashboard .am-copy-btn {
+    padding: 0.3rem 0.5rem;
+    font-size: 0.65rem;
+  }
 }
 
 @media (max-width: 400px) {
-    #am-dashboard .am-title {
-        font-size: 1.25rem;
-    }
+  #am-dashboard .am-title {
+    font-size: 1.25rem;
+  }
 
-    #am-dashboard .am-stat-value {
-        font-size: 1.4rem;
-    }
+  #am-dashboard .am-stat-value {
+    font-size: 1.4rem;
+  }
 
-    #am-dashboard .am-stats-grid {
-        gap: 1rem;
-        grid-template-columns: 1fr;
-    }
+  #am-dashboard .am-stats-grid {
+    gap: 1rem;
+    grid-template-columns: 1fr;
+  }
 
-    #am-dashboard .am-stat-card {
-        padding: 1rem;
-    }
+  #am-dashboard .am-stat-card {
+    padding: 1rem;
+  }
 
-    #am-dashboard .am-code-block {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.5rem;
-    }
+  #am-dashboard .am-code-block {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
 
-    #am-dashboard .am-flex-between {
-        flex-direction: column;
-        align-items: flex-start;
-    }
+  #am-dashboard .am-flex-between {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 
-    #am-dashboard .am-method-item {
-        padding-bottom: 1rem;
-        margin-bottom: 1rem;
-    }
+  #am-dashboard .am-method-item {
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+  }
 }

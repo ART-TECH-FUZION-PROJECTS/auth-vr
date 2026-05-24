@@ -10,78 +10,78 @@
 
 /* ── OTP Container (6-box layout) ────────── */
 #authme-otp-screen .authme-otp-container {
-    display: flex;
-    justify-content: space-between;
-    gap: 8px;
-    margin-bottom: 24px;
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 24px;
 }
 
 /* ── Individual OTP Box ──────────────────── */
 #authme-otp-screen .authme-otp-box {
-    width: 48px;
-    height: 56px;
-    text-align: center;
-    font-size: 24px;
-    font-weight: 700;
-    font-family: var(--authme-font);
-    border: 1.5px solid var(--authme-border-default);
-    border-radius: 12px;
-    background-color: var(--authme-white);
-    color: var(--authme-text);
-    transition: all 0.2s ease;
-    padding: 0;
-    outline: none;
+  width: 48px;
+  height: 56px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 700;
+  font-family: var(--authme-font);
+  border: 1.5px solid var(--authme-border-default);
+  border-radius: 12px;
+  background-color: var(--authme-white);
+  color: var(--authme-text);
+  transition: all 0.2s ease;
+  padding: 0;
+  outline: none;
 }
 
 #authme-otp-screen .authme-otp-box:focus {
-    border-color: var(--authme-primary);
-    box-shadow: 0 0 0 4px var(--authme-light-red-bg);
-    background-color: var(--authme-white);
+  border-color: var(--authme-primary);
+  box-shadow: 0 0 0 4px var(--authme-light-red-bg);
+  background-color: var(--authme-white);
 }
 
 /* Filled box highlight */
 #authme-otp-screen .authme-otp-box.authme-otp-filled {
-    border-color: var(--authme-primary);
-    background-color: var(--authme-bg);
+  border-color: var(--authme-primary);
+  background-color: var(--authme-bg);
 }
 
 /* ── Button ──────────────────────────────── */
 #authme-otp-screen .authme-btn-primary {
-    width: 100%;
-    padding: 14px;
-    background-color: var(--authme-primary);
-    color: var(--authme-white);
-    border: none;
-    border-radius: 10px;
-    font-size: 1.2rem;
-    font-weight: 600;
-    font-family: var(--authme-font);
-    cursor: pointer;
-    transition: all 0.2s ease;
-    margin-top: 8px;
+  width: 100%;
+  padding: 14px;
+  background-color: var(--authme-primary);
+  color: var(--authme-white);
+  border: none;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  font-family: var(--authme-font);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: 8px;
 }
 
 #authme-otp-screen .authme-btn-primary:hover:not(:disabled) {
-    opacity: 0.9;
-    transform: translateY(-1px);
-    box-shadow: var(--authme-card-shadow);
+  opacity: 0.9;
+  transform: translateY(-1px);
+  box-shadow: var(--authme-card-shadow);
 }
 
 #authme-otp-screen .authme-btn-primary:active:not(:disabled) {
-    transform: translateY(0);
-    box-shadow: none;
+  transform: translateY(0);
+  box-shadow: none;
 }
 
 #authme-otp-screen .authme-btn-primary:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 /* ── Responsive ──────────────────────────── */
 @media (max-width: 480px) {
-    #authme-otp-screen .authme-otp-box {
-        width: 35px;
-        height: 35px;
-        font-size: 1.6rem;
-    }
+  #authme-otp-screen .authme-otp-box {
+    width: 35px;
+    height: 35px;
+    font-size: 1.6rem;
+  }
 }

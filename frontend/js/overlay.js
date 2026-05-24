@@ -215,8 +215,6 @@
         authmeOpenOverlay();
       }
     });
-
-
   });
 
   // Expose globally

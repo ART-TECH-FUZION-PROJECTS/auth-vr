@@ -1,4 +1,5 @@
 <?php
+
 /**
  * AuthMe Become a Host Modal
  *
@@ -8,7 +9,7 @@
  * @package AuthMe
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
+if (! defined('ABSPATH')) {
     exit;
 }
 ?>
@@ -22,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
             <!-- Close Button -->
             <button type="button" id="authme-host-close" class="authme-host-close" aria-label="Close">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <line x1="18" y1="6" x2="6" y2="18"></line>
                     <line x1="6" y1="6" x2="18" y2="18"></line>
                 </svg>
@@ -43,9 +44,9 @@ if ( ! defined( 'ABSPATH' ) ) {
             <div id="authme-host-step-1" class="authme-host-screen authme-host-screen-active">
                 <h2 class="authme-host-title">Become a Host</h2>
                 <p class="authme-host-subtitle">Step 1: Personal Information</p>
-
+                <p class="authme-host-subtitle authme-host-subtitle-2">(Keep your Aadhar card & Pan card ready to upload)</p>
                 <form id="authme-host-info-form" class="authme-host-form" autocomplete="off" novalidate>
-                    
+
                     <div class="authme-host-input-group">
                         <input type="text" id="authme-host-username" class="authme-host-input" placeholder="Username" required>
                         <span id="authme-host-username-msg" class="authme-host-field-msg"></span>
@@ -67,7 +68,9 @@ if ( ! defined( 'ABSPATH' ) ) {
                                 <button type="button" class="authme-dropdown-trigger" id="authme-host-country-trigger">
                                     <span class="authme-selected-flag">🌐</span>
                                     <span class="authme-selected-code">Code</span>
-                                    <svg class="authme-dropdown-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                                    <svg class="authme-dropdown-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M6 9l6 6 6-6" />
+                                    </svg>
                                 </button>
                                 <div class="authme-dropdown-menu" id="authme-host-country-menu" style="display:none;">
                                     <div class="authme-dropdown-search">
@@ -96,7 +99,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                 <p class="authme-host-subtitle">Step 2: Verification identity</p>
 
                 <form id="authme-host-upload-form" class="authme-host-form" novalidate>
-                    
+
                     <!-- Aadhar Front -->
                     <div class="authme-host-upload-box">
                         <label class="authme-host-upload-label">Aadhar Card (Front)</label>
@@ -179,7 +182,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                     </div>
 
                     <button type="submit" id="authme-host-otp-submit-btn" class="authme-host-btn authme-host-btn-primary">Verify & Submit</button>
-                    
+
                     <!-- Dot Bounce Loader (Hidden by default) -->
                     <div id="authme-host-loader" class="authme-host-loader" style="display:none;">
                         <div class="host-dot"></div>
@@ -192,7 +195,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                     Didn't receive the code?
                     <span id="authme-host-resend-btn" class="authme-host-link authme-host-link-disabled">Resend in <b id="authme-host-otp-timer">60</b>s</span>
                 </p>
-                
+
                 <button type="button" id="authme-host-prev-to-2" class="authme-host-btn authme-host-btn-secondary authme-host-link-back">Back</button>
             </div>
 

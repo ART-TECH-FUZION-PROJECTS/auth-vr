@@ -10,106 +10,106 @@
 
 /* ── Toast Container ────────────────────── */
 .authme-toaster {
-    position: fixed;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: var(--authme-white);
-    border: 1px solid var(--authme-border-default);
-    border-left: 4px solid var(--authme-primary);
-    border-radius: 8px;
-    box-shadow: var(--authme-card-shadow);
-    padding: 16px 40px 16px 16px;
-    min-width: 300px;
-    max-width: 400px;
-    z-index: 999999;
-    animation: authmeToasterFadeInDown 0.3s ease-out;
-    font-family: var(--authme-font);
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--authme-white);
+  border: 1px solid var(--authme-border-default);
+  border-left: 4px solid var(--authme-primary);
+  border-radius: 8px;
+  box-shadow: var(--authme-card-shadow);
+  padding: 16px 40px 16px 16px;
+  min-width: 300px;
+  max-width: 400px;
+  z-index: 999999;
+  animation: authmeToasterFadeInDown 0.3s ease-out;
+  font-family: var(--authme-font);
 }
 
 /* ── Type Variants (left-border color) ──── */
 .authme-toaster.authme-toaster-success {
-    border-left-color: var(--authme-success);
+  border-left-color: var(--authme-success);
 }
 
 .authme-toaster.authme-toaster-error {
-    border-left-color: var(--authme-error);
+  border-left-color: var(--authme-error);
 }
 
 .authme-toaster.authme-toaster-warning {
-    border-left-color: var(--authme-warning);
+  border-left-color: var(--authme-warning);
 }
 
 .authme-toaster.authme-toaster-info {
-    border-left-color: var(--authme-accent);
+  border-left-color: var(--authme-accent);
 }
 
 /* ── Slide-in Animation ─────────────────── */
 @keyframes authmeToasterFadeInDown {
-    from {
-        transform: translateX(-50%) translateY(-20px);
-        opacity: 0;
-    }
-    to {
-        transform: translateX(-50%) translateY(0);
-        opacity: 1;
-    }
+  from {
+    transform: translateX(-50%) translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+  }
 }
 
 /* ── Slide-out Animation ────────────────── */
 @keyframes authmeToasterFadeOutUp {
-    from {
-        transform: translateX(-50%) translateY(0);
-        opacity: 1;
-    }
-    to {
-        transform: translateX(-50%) translateY(-20px);
-        opacity: 0;
-    }
+  from {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(-50%) translateY(-20px);
+    opacity: 0;
+  }
 }
 
 .authme-toaster.authme-toaster-hiding {
-    animation: authmeToasterFadeOutUp 0.3s ease-out forwards;
+  animation: authmeToasterFadeOutUp 0.3s ease-out forwards;
 }
 
 /* ── Message Text ───────────────────────── */
 .authme-toaster-message {
-    color: var(--authme-grey-light-text);
-    font-size: 13px;
-    line-height: 1.4;
+  color: var(--authme-grey-light-text);
+  font-size: 13px;
+  line-height: 1.4;
 }
 
 /* ── Close Button ───────────────────────── */
 .authme-toaster-close {
-    position: absolute;
-    top: 8px;
-    right: 8px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 4px;
-    color: var(--authme-grey-light-text);
-    font-size: 18px;
-    line-height: 1;
-    transition: color 0.2s;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  color: var(--authme-grey-light-text);
+  font-size: 18px;
+  line-height: 1;
+  transition: color 0.2s;
 }
 
 .authme-toaster-close:hover {
-    color: var(--authme-primary);
+  color: var(--authme-primary);
 }
 
 /* ── Responsive: ≤ 400px ────────────────── */
 @media (max-width: 400px) {
-    .authme-toaster {
-        min-width: 200px;
-        max-width: 230px;
-    }
+  .authme-toaster {
+    min-width: 200px;
+    max-width: 230px;
+  }
 }
 
 /* ── Responsive: > 400px ────────────────── */
 @media (min-width: 401px) {
-    .authme-toaster {
-        min-width: 300px;
-        max-width: 400px;
-    }
+  .authme-toaster {
+    min-width: 300px;
+    max-width: 400px;
+  }
 }

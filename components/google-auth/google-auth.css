@@ -3,53 +3,53 @@
  * ============================================ */
 
 .authme-google-auth-container {
-    margin-top: 25px;
-    width: 100%;
+  margin-top: 25px;
+  width: 100%;
 }
 
 .authme-divider {
-    display: flex;
-    align-items: center;
-    text-align: center;
-    margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 .authme-divider::before,
 .authme-divider::after {
-    content: '';
-    flex: 1;
-    border-bottom: 1px solid var(--authme-border-default);
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid var(--authme-border-default);
 }
 
 .authme-divider span {
-    padding: 0 15px;
-    color: var(--authme-grey-light-text);
-    font-size: 14px;
-    font-weight: 500;
+  padding: 0 15px;
+  color: var(--authme-grey-light-text);
+  font-size: 14px;
+  font-weight: 500;
 }
 
 .authme-btn-google {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    background: var(--authme-white) !important;
-    color: var(--authme-text) !important;
-    border: 1px solid var(--authme-border-default) !important;
-    width: 100%;
-    padding: 12px !important;
-    border-radius: 12px !important;
-    font-weight: 600 !important;
-    transition: all 0.2s ease !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: var(--authme-white) !important;
+  color: var(--authme-text) !important;
+  border: 1px solid var(--authme-border-default) !important;
+  width: 100%;
+  padding: 12px !important;
+  border-radius: 12px !important;
+  font-weight: 600 !important;
+  transition: all 0.2s ease !important;
 }
 
 .authme-btn-google:hover {
-    background: var(--authme-bg) !important;
-    border-color: var(--authme-grey-light-text) !important;
-    box-shadow: var(--authme-card-shadow) !important;
+  background: var(--authme-bg) !important;
+  border-color: var(--authme-grey-light-text) !important;
+  box-shadow: var(--authme-card-shadow) !important;
 }
 
 .authme-google-icon {
-    width: 20px;
-    height: 20px;
+  width: 20px;
+  height: 20px;
 }

@@ -1,1 +1,1 @@
-<?php if(!defined('ABSPATH')){exit;} ?><div id="authme-toaster" class="authme-toaster" style="display: none;"><span class="authme-toaster-message" id="authme-toaster-message"></span><button class="authme-toaster-close" id="authme-toaster-close" aria-label="Close">&times;</button></div> 
+<?php if(!defined('ABSPATH')){exit;} ?><div id="authme-toaster" class="authme-toaster" style="display: none;"><span class="authme-toaster-message" id="authme-toaster-message"></span><button class="authme-toaster-close" id="authme-toaster-close" aria-label="Close">&times;</button></div>

@@ -3,144 +3,144 @@
  */
 
 .authme-confirm-modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 99999;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: var(--authme-font);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--authme-font);
 }
 
 .authme-confirm-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-    animation: authmeFadeIn 0.3s ease forwards;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  animation: authmeFadeIn 0.3s ease forwards;
 }
 
 .authme-confirm-container {
-    position: relative;
-    background-color: var(--authme-white);
-    width: 90%;
-    max-width: 360px;
-    border-radius: 20px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-    padding: 32px;
-    text-align: center;
-    transform: scale(0.9);
-    opacity: 0;
-    animation: authmeScaleUp 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  position: relative;
+  background-color: var(--authme-white);
+  width: 90%;
+  max-width: 360px;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  padding: 32px;
+  text-align: center;
+  transform: scale(0.9);
+  opacity: 0;
+  animation: authmeScaleUp 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }
 
 .authme-confirm-icon-box {
-    width: 56px;
-    height: 56px;
-    background-color: var(--authme-light-red-bg);
-    color: var(--authme-error);
-    border-radius: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 20px;
+  width: 56px;
+  height: 56px;
+  background-color: var(--authme-light-red-bg);
+  color: var(--authme-error);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
 }
 
 .authme-confirm-icon-box svg {
-    width: 28px;
-    height: 28px;
+  width: 28px;
+  height: 28px;
 }
 
 .authme-confirm-title {
-        margin: 1rem auto;
-    font-size: 1.8rem;
-    font-weight: 600;
-    color: var(--authme-secondary);
+  margin: 1rem auto;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--authme-secondary);
 }
 
 .authme-confirm-message {
-    margin: 1rem auto;
-    font-size: 1.4rem;
-    line-height: 1.2em;
-    color: var(--authme-grey-light-text);
+  margin: 1rem auto;
+  font-size: 1.4rem;
+  line-height: 1.2em;
+  color: var(--authme-grey-light-text);
 }
 
 .authme-confirm-actions {
-    display: flex;
-    gap: 12px;
-    margin-top: 3rem;
+  display: flex;
+  gap: 12px;
+  margin-top: 3rem;
 }
 
 .authme-confirm-btn {
-    flex: 1;
-    height: 48px;
-    border-radius: 12px;
-    font-size: 1.4rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    border: none;
-    font-family: inherit;
+  flex: 1;
+  height: 48px;
+  border-radius: 12px;
+  font-size: 1.4rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+  font-family: inherit;
 }
 
 .authme-confirm-btn-cancel {
-    background-color: transparent;
-    border: 1px solid var(--authme-border-default) !important;
-    color: var(--authme-text); 
+  background-color: transparent;
+  border: 1px solid var(--authme-border-default) !important;
+  color: var(--authme-text);
 }
 
 .authme-confirm-btn-cancel:hover {
-   transform: translateY(-1px);
+  transform: translateY(-1px);
 }
 
 .authme-confirm-btn-primary {
-    border: 1px solid var(--authme-primary) !important;
-    background-color: var(--authme-primary);
-    color: var(--authme-white);
+  border: 1px solid var(--authme-primary) !important;
+  background-color: var(--authme-primary);
+  color: var(--authme-white);
 }
 
 .authme-confirm-btn-primary:hover {
-    transform: translateY(-1px);
+  transform: translateY(-1px);
 }
 
 /* Animations */
 @keyframes authmeFadeIn {
-    from {
-        opacity: 0;
-    }
+  from {
+    opacity: 0;
+  }
 
-    to {
-        opacity: 1;
-    }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes authmeScaleUp {
-    from {
-        opacity: 0;
-        transform: scale(0.9);
-    }
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
 
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 /* Hiding animation */
 .authme-confirm-modal.hiding .authme-confirm-overlay {
-    opacity: 0;
-    transition: opacity 0.3s ease;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .authme-confirm-modal.hiding .authme-confirm-container {
-    opacity: 0;
-    transform: scale(0.95);
-    transition: all 0.2s ease;
+  opacity: 0;
+  transform: scale(0.95);
+  transition: all 0.2s ease;
 }

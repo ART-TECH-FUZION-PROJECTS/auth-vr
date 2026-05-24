@@ -1,4 +1,5 @@
 <?php
+
 /**
  * AuthMe Email Configurations
  *
@@ -7,7 +8,7 @@
  * @package AuthMe
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
+if (! defined('ABSPATH')) {
     exit;
 }
 
@@ -17,9 +18,10 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @param string $template_id The identifier for the email template.
  * @return array|null Returns the config array, or null if not found.
  */
-function authme_get_email_config( $template_id ) {
-    $site_name   = get_bloginfo( 'name' );
-    $admin_email = get_option( 'admin_email' );
+function authme_get_email_config($template_id)
+{
+    $site_name   = get_bloginfo('name');
+    $admin_email = get_option('admin_email');
 
     $configs = array(
         'registration_otp' => array(
@@ -66,6 +68,9 @@ function authme_get_email_config( $template_id ) {
             'has_otp'        => false,
             'has_details'    => true,
             'has_admin_data' => false,
+            'has_button'     => true,
+            'button_text'    => 'Login to Your Account',
+            'button_url'     => home_url('/authme'),
         ),
         'host_rejected' => array(
             'subject'        => 'Regret!! Your host id unverified — ' . $site_name,
@@ -84,7 +89,7 @@ function authme_get_email_config( $template_id ) {
             'has_otp'        => false,
             'has_details'    => false,
             'has_admin_data' => false,
-            'has_all_details'=> true,
+            'has_all_details' => true,
         ),
         'google_register_success' => array(
             'subject'        => 'Welcome to ' . $site_name,
@@ -94,7 +99,7 @@ function authme_get_email_config( $template_id ) {
             'has_otp'        => false,
             'has_details'    => false,
             'has_admin_data' => false,
-            'has_all_details'=> true,
+            'has_all_details' => true,
         ),
         'register_success' => array(
             'subject'        => 'Welcome to ' . $site_name,
@@ -104,7 +109,7 @@ function authme_get_email_config( $template_id ) {
             'has_otp'        => false,
             'has_details'    => false,
             'has_admin_data' => false,
-            'has_all_details'=> true,
+            'has_all_details' => true,
         ),
         'google_login_alert' => array(
             'subject'        => 'New Login via Google Detected — ' . $site_name,
@@ -126,5 +131,5 @@ function authme_get_email_config( $template_id ) {
         ),
     );
 
-    return isset( $configs[ $template_id ] ) ? $configs[ $template_id ] : null;
+    return isset($configs[$template_id]) ? $configs[$template_id] : null;
 }

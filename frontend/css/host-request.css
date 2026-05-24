@@ -7,543 +7,550 @@
  * ============================================ */
 
 .authme-host-backdrop {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: var(--authme-overlay-bg);
-    display: none;
-    justify-content: center;
-    align-items: center;
-    z-index: 10000;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-    overflow-y: auto;
-    overscroll-behavior: contain;
-    touch-action: pan-y;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--authme-overlay-bg);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  touch-action: pan-y;
 }
 
-
 .authme-host-container {
-    background: var(--authme-white);
-    width: 100%;
-    max-width: 480px;
-    border-radius: 20px;
-    box-shadow: var(--authme-card-shadow);
-    position: relative;
-    padding: 40px;
-    margin: auto;
-    transform: translateY(20px);
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    max-height: none;
-    font-family: var(--authme-font);
-    scrollbar-width: none;
-    -ms-overflow-style: none;
+  background: var(--authme-white);
+  width: 100%;
+  max-width: 480px;
+  border-radius: 20px;
+  box-shadow: var(--authme-card-shadow);
+  position: relative;
+  padding: 40px;
+  margin: auto;
+  transform: translateY(20px);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  max-height: none;
+  font-family: var(--authme-font);
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 .authme-host-container::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 .authme-host-backdrop.authme-host-visible .authme-host-container {
-    transform: translateY(0);
+  transform: translateY(0);
 }
 
 .authme-host-close {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background: transparent;
-    border: none;
-    color: var(--authme-grey-light-text);
-    cursor: pointer;
-    padding: 8px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.2s ease;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: transparent;
+  border: none;
+  color: var(--authme-grey-light-text);
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
 }
 
 .authme-host-close:hover {
-    background: var(--authme-bg);
-    color: var(--authme-text);
+  background: var(--authme-bg);
+  color: var(--authme-text);
 }
 
 /* ── Typography ──────────────────────────── */
 
 .authme-host-title {
-    font-size: 24px;
-    font-weight: 700;
-    color: var(--authme-text);
-    margin-bottom: 8px;
-    text-align: center;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--authme-text);
+  margin-bottom: 8px;
+  text-align: center;
 }
 
 .authme-host-subtitle {
-    font-size: 14px;
-    color: var(--authme-grey-light-text);
-    text-align: center;
-    margin-bottom: 30px;
+  font-size: 14px;
+  color: var(--authme-grey-light-text);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.authme-host-subtitle-2 {
+  font-size: 12px;
+  margin-top: -26px;
 }
 
 /* ── Form Inputs ─────────────────────────── */
 
 .authme-host-form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .authme-host-input-group {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  position: relative;
 }
 
 .authme-host-input {
-    width: 100%;
-    border: 1px solid var(--authme-border-default) !important;
-    border-radius: 8px !important;
-    background: var(--authme-white) !important;
-    color: var(--authme-text) !important;
-    font-size: 15px !important;
-    transition: all 0.2s ease !important;
-    box-sizing: border-box;
+  width: 100%;
+  border: 1px solid var(--authme-border-default) !important;
+  border-radius: 8px !important;
+  background: var(--authme-white) !important;
+  color: var(--authme-text) !important;
+  font-size: 15px !important;
+  transition: all 0.2s ease !important;
+  box-sizing: border-box;
 }
 
 .authme-host-input::placeholder {
-    color: var(--authme-grey-light-text);
+  color: var(--authme-grey-light-text);
 }
 
 .authme-host-input:focus {
-    outline: none;
-    border-color: var(--authme-primary);
-    box-shadow: 0 0 0 3px var(--authme-light-red-bg);
+  outline: none;
+  border-color: var(--authme-primary);
+  box-shadow: 0 0 0 3px var(--authme-light-red-bg);
 }
 
 .authme-host-input.authme-host-input-error {
-    border-color: var(--authme-error);
+  border-color: var(--authme-error);
 }
 
 .authme-host-input.authme-host-input-error:focus {
-    box-shadow: 0 0 0 3px var(--authme-light-red-bg);
+  box-shadow: 0 0 0 3px var(--authme-light-red-bg);
 }
 
 .authme-host-input.authme-host-input-success {
-    border-color: var(--authme-success);
+  border-color: var(--authme-success);
 }
 
 .authme-host-input.authme-host-input-success:focus {
-    box-shadow: 0 0 0 3px var(--authme-light-green-bg);
+  box-shadow: 0 0 0 3px var(--authme-light-green-bg);
 }
 
 .authme-host-field-msg {
-    font-size: 13px;
-    line-height: 1.4;
-    color: var(--authme-grey-light-text);
-    display: block;
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--authme-grey-light-text);
+  display: block;
 }
 
 .authme-host-field-msg:empty {
-    display: none;
+  display: none;
 }
 
 .authme-host-msg-error {
-    color: var(--authme-error);
+  color: var(--authme-error);
 }
 
 .authme-host-msg-success {
-    color: var(--authme-success);
+  color: var(--authme-success);
 }
 
 /* ── Mobile Input ────────────────────────── */
 
 .authme-host-mobile-wrapper {
-    display: flex;
-    gap: 10px;
+  display: flex;
+  gap: 10px;
 }
 
 .authme-host-country-select {
-    width: 90px;
-    padding: 12px 10px;
-    min-height: 45px;
-    border: 1px solid var(--authme-border-default);
-    border-radius: 8px;
-    background: var(--authme-white);
-    color: var(--authme-text);
-    font-size: 14px;
-    cursor: pointer;
-    box-sizing: border-box;
+  width: 90px;
+  padding: 12px 10px;
+  min-height: 45px;
+  border: 1px solid var(--authme-border-default);
+  border-radius: 8px;
+  background: var(--authme-white);
+  color: var(--authme-text);
+  font-size: 14px;
+  cursor: pointer;
+  box-sizing: border-box;
 }
 
 .authme-host-country-select:focus {
-    outline: none;
-    border-color: var(--authme-primary);
-    box-shadow: 0 0 0 3px var(--authme-light-red-bg);
+  outline: none;
+  border-color: var(--authme-primary);
+  box-shadow: 0 0 0 3px var(--authme-light-red-bg);
 }
 
 .authme-host-mobile-input {
-    flex: 1;
+  flex: 1;
 }
 
 /* ── Step Indicators ────────────────────── */
 
 .authme-host-steps-tracker {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 30px;
-    padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+  padding: 0 20px;
 }
 
 .host-step-dot {
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    background-color: var(--authme-border-default);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 12px;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: var(--authme-border-default);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
 }
 
 .host-step-dot.active {
-    background-color: var(--authme-primary);
+  background-color: var(--authme-primary);
 }
 
 .host-step-dot.completed {
-    background-color: var(--authme-success);
+  background-color: var(--authme-success);
 }
 
 .host-step-line {
-    flex: 1;
-    height: 2px;
-    background-color: var(--authme-border-default);
-    margin: 0 10px;
-    transition: background-color 0.3s ease;
+  flex: 1;
+  height: 2px;
+  background-color: var(--authme-border-default);
+  margin: 0 10px;
+  transition: background-color 0.3s ease;
 }
 
 .host-step-line.active {
-    background-color: var(--authme-success);
+  background-color: var(--authme-success);
 }
 
 /* ── Screens / Steps ────────────────────── */
 
 .authme-host-screen {
-    display: none;
-    animation: hostFadeIn 0.3s ease forwards;
+  display: none;
+  animation: hostFadeIn 0.3s ease forwards;
 }
 
 .authme-host-screen.authme-host-screen-active {
-    display: block;
+  display: block;
 }
 
 @keyframes hostFadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(5px);
-    }
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
 
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ── Document Upload ────────────────────── */
 
 .authme-host-upload-box {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .authme-host-upload-label {
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--authme-text);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--authme-text);
 }
 
 .authme-host-upload-area {
-    position: relative;
-    border: 2px dashed var(--authme-border-default);
-    border-radius: 8px;
-    background-color: var(--authme-bg);
-    height: 120px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    cursor: pointer;
-    transition: border-color 0.2s ease, background-color 0.2s ease;
+  position: relative;
+  border: 2px dashed var(--authme-border-default);
+  border-radius: 8px;
+  background-color: var(--authme-bg);
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  cursor: pointer;
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease;
 }
 
 .authme-host-upload-area:hover {
-    border-color: var(--authme-primary);
-    background-color: var(--authme-bg);
+  border-color: var(--authme-primary);
+  background-color: var(--authme-bg);
 }
 
 .authme-host-file-input {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    cursor: pointer;
-    z-index: 10;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 10;
 }
 
 .authme-host-upload-placeholder {
-    font-size: 13px;
-    color: var(--authme-grey-light-text);
-    text-align: center;
-    pointer-events: none;
+  font-size: 13px;
+  color: var(--authme-grey-light-text);
+  text-align: center;
+  pointer-events: none;
 }
 
 .authme-host-upload-preview {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 20;
-    background: var(--authme-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 20;
+  background: var(--authme-text);
 }
 
 .authme-host-upload-preview img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.8;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.8;
 }
 
 /* ── Progress Bar ────────────────────────── */
 
 .authme-host-progress-wrap {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    background: var(--authme-border-default);
-    z-index: 25;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--authme-border-default);
+  z-index: 25;
 }
 
 .authme-host-progress-bar {
-    width: 0;
-    height: 100%;
-    background: var(--authme-primary);
-    transition: width 0.2s ease;
+  width: 0;
+  height: 100%;
+  background: var(--authme-primary);
+  transition: width 0.2s ease;
 }
 
 .authme-host-remove-file {
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    background: var(--authme-secondary);
-    color: var(--authme-white);
-    border: none;
-    border-radius: 50%;
-    width: 24px;
-    height: 24px;
-    font-size: 16px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 30;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: var(--authme-secondary);
+  color: var(--authme-white);
+  border: none;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 30;
 }
 
 /* ── Buttons ─────────────────────────────── */
 
 .authme-host-btn {
-    width: 100%;
-    padding: 10px;
-    border-radius: 8px;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer !important;
-    transition: all 0.2s ease;
-    box-sizing: border-box;
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer !important;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
 }
 
 .authme-host-btn:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 .authme-host-btn-primary {
-    background: var(--authme-primary) !important;
-    color: var(--authme-white);
+  background: var(--authme-primary) !important;
+  color: var(--authme-white);
 }
 
 .authme-host-btn-primary:not(:disabled):hover {
-    opacity: 0.9;
-    box-shadow: var(--authme-card-shadow);
+  opacity: 0.9;
+  box-shadow: var(--authme-card-shadow);
 }
 
 .authme-host-btn-secondary {
-    background: var(--authme-bg);
-    color: var(--authme-text);
-    border: 1px solid var(--authme-border-default);
+  background: var(--authme-bg);
+  color: var(--authme-text);
+  border: 1px solid var(--authme-border-default);
 }
 
 .authme-host-btn-secondary:not(:disabled):hover {
-    background: var(--authme-border-default);
+  background: var(--authme-border-default);
 }
 
 .authme-host-actions {
-    display: flex;
-    gap: 15px;
-    margin-top: 10px;
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
 }
 
 /* ── OTP Verification ────────────────────── */
 
 .authme-host-otp-container {
-    display: flex;
-    justify-content: space-between;
-    gap: 10px;
-    margin-bottom: 25px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 25px;
 }
 
 .authme-host-otp-box {
-    width: calc(16.66% - 8px) !important;
-    height: 50px;
-    text-align: center;
-    font-size: 2rem !important;
-    font-weight: 600;
-    border: 1px solid var(--authme-border-default)  !important;
-    border-radius: 15px !important;
-    background: var(--authme-white);
-    color: var(--authme-text);
-    transition: all 0.2s ease !important;
+  width: calc(16.66% - 8px) !important;
+  height: 50px;
+  text-align: center;
+  font-size: 2rem !important;
+  font-weight: 600;
+  border: 1px solid var(--authme-border-default) !important;
+  border-radius: 15px !important;
+  background: var(--authme-white);
+  color: var(--authme-text);
+  transition: all 0.2s ease !important;
 }
 
 .authme-host-otp-box:focus {
-    outline: none;
-    border-color: var(--authme-primary);
-    box-shadow: 0 0 0 3px var(--authme-light-red-bg);
+  outline: none;
+  border-color: var(--authme-primary);
+  box-shadow: 0 0 0 3px var(--authme-light-red-bg);
 }
 
 .authme-host-otp-box.authme-host-otp-filled {
-    border-color: var(--authme-primary) !important;
+  border-color: var(--authme-primary) !important;
 }
 
 /* ── Links & Resend ──────────────────────── */
 
 .authme-host-switch-link {
-    text-align: center;
-    font-size: 14px;
-    color: var(--authme-grey-light-text);
-    margin-top: 20px;
+  text-align: center;
+  font-size: 14px;
+  color: var(--authme-grey-light-text);
+  margin-top: 20px;
 }
 
 .authme-host-link {
-    color: var(--authme-primary);
-    font-weight: 600;
-    cursor: pointer;
-    text-decoration: none;
-    transition: color 0.2s ease;
+  color: var(--authme-primary);
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: color 0.2s ease;
 }
 
 .authme-host-link:not(.authme-host-link-disabled):hover {
-    color: var(--authme-primary);
+  color: var(--authme-primary);
 }
 
 .authme-host-link-disabled {
-    color: var(--authme-grey-light-text);
-    cursor: default;
+  color: var(--authme-grey-light-text);
+  cursor: default;
 }
 
 /* ── Bounce Loader ───────────────────────── */
 
 .authme-host-loader {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-    margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
 }
 
 .host-dot {
-    width: 10px;
-    height: 10px;
-    background-color: var(--authme-primary);
-    border-radius: 50%;
-    animation: hostBounce 1.4s infinite ease-in-out both;
+  width: 10px;
+  height: 10px;
+  background-color: var(--authme-primary);
+  border-radius: 50%;
+  animation: hostBounce 1.4s infinite ease-in-out both;
 }
 
 .host-dot:nth-child(1) {
-    animation-delay: -0.32s;
+  animation-delay: -0.32s;
 }
 
 .host-dot:nth-child(2) {
-    animation-delay: -0.16s;
+  animation-delay: -0.16s;
 }
 
 @keyframes hostBounce {
+  0%,
+  80%,
+  100% {
+    transform: scale(0);
+  }
 
-    0%,
-    80%,
-    100% {
-        transform: scale(0);
-    }
-
-    40% {
-        transform: scale(1);
-    }
+  40% {
+    transform: scale(1);
+  }
 }
 
 /* ── Success Screen ──────────────────────── */
 
 .authme-host-success-screen {
-    text-align: center;
-    padding: 20px 0;
+  text-align: center;
+  padding: 20px 0;
 }
 
 .authme-host-success-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 80px;
-    height: 80px;
-    background-color: var(--authme-light-green-bg);
-    color: var(--authme-success);
-    border-radius: 50%;
-    margin-bottom: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  background-color: var(--authme-light-green-bg);
+  color: var(--authme-success);
+  border-radius: 50%;
+  margin-bottom: 20px;
 }
 
 .authme-host-auto-close-msg {
-    font-size: 12px;
-    color: var(--authme-grey-light-text);
-    margin-top: 20px;
+  font-size: 12px;
+  color: var(--authme-grey-light-text);
+  margin-top: 20px;
 }
 
 /* ── Responsive ──────────────────────────── */
 
 @media (max-width: 480px) {
-    .authme-host-container {
-        padding: 30px 20px;
-        border-radius: 10px;
-        min-height: 100vh;
-        max-height: 100vh;
-        transform: translateY(0);
-        box-shadow: none;
-    }
+  .authme-host-container {
+    padding: 30px 20px;
+    border-radius: 10px;
+    min-height: 100vh;
+    max-height: 100vh;
+    transform: translateY(0);
+    box-shadow: none;
+  }
 
-    .authme-host-backdrop {
-        align-items: flex-start;
-    }
+  .authme-host-backdrop {
+    align-items: flex-start;
+  }
 
-    .authme-host-otp-box {
-        height: 45px;
-        font-size: 20px;
-    }
+  .authme-host-otp-box {
+    height: 45px;
+    font-size: 20px;
+  }
 }

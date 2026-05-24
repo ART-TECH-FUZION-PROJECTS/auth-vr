@@ -10,7 +10,10 @@ document.addEventListener("DOMContentLoaded", function () {
   const googleBtns = document.querySelectorAll(".authme-google-btn");
   if (googleBtns.length === 0) return;
 
-  const clientId = typeof authme_google_settings !== 'undefined' ? authme_google_settings.client_id : '';
+  const clientId =
+    typeof authme_google_settings !== "undefined"
+      ? authme_google_settings.client_id
+      : "";
   let client;
 
   if (clientId) {
@@ -37,8 +40,8 @@ document.addEventListener("DOMContentLoaded", function () {
   googleBtns.forEach((btn) => {
     btn.addEventListener("click", function (e) {
       if (!clientId) {
-        if (typeof window.authmeToast === 'function') {
-          window.authmeToast('error', "no client id found");
+        if (typeof window.authmeToast === "function") {
+          window.authmeToast("error", "no client id found");
         }
         console.error("AuthMe Google Auth: Client ID is missing.");
         return;
@@ -79,8 +82,11 @@ document.addEventListener("DOMContentLoaded", function () {
       .then((response) => response.json())
       .then((data) => {
         if (data.success) {
-          if (typeof window.authmeToast === 'function') {
-            window.authmeToast('success', data.data.message || "Authenticated successfully!");
+          if (typeof window.authmeToast === "function") {
+            window.authmeToast(
+              "success",
+              data.data.message || "Authenticated successfully!",
+            );
           }
           // Redirect or reload based on success
           setTimeout(() => {
@@ -91,8 +97,11 @@ document.addEventListener("DOMContentLoaded", function () {
             }
           }, 1500);
         } else {
-          if (typeof window.authmeToast === 'function') {
-            window.authmeToast('error', data.data.message || "Authentication failed.");
+          if (typeof window.authmeToast === "function") {
+            window.authmeToast(
+              "error",
+              data.data.message || "Authentication failed.",
+            );
           }
           activeBtn.innerHTML = originalText;
           activeBtn.disabled = false;
@@ -100,8 +109,11 @@ document.addEventListener("DOMContentLoaded", function () {
       })
       .catch((error) => {
         console.error("AJAX Error:", error);
-        if (typeof window.authmeToast === 'function') {
-          window.authmeToast('error', "An unexpected error occurred. Please try again.");
+        if (typeof window.authmeToast === "function") {
+          window.authmeToast(
+            "error",
+            "An unexpected error occurred. Please try again.",
+          );
         }
         activeBtn.innerHTML = originalText;
         activeBtn.disabled = false;

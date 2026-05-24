@@ -1,4 +1,5 @@
 <?php
+
 /**
  * AuthMe Toaster Notification Template
  *
@@ -8,7 +9,7 @@
  * @package AuthMe
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
+if (! defined('ABSPATH')) {
     exit;
 }
 ?>

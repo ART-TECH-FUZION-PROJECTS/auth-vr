@@ -8,49 +8,48 @@
  * @package AuthMe
  * ============================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap');
-
-
+@import url("https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap");
 
 :root {
-    /* Typography */
-    --authme-font: 'Figtree', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  /* Typography */
+  --authme-font:
+    "Figtree", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 
-    /* Primary colors */
-    --authme-primary: #F15E74;
-    --authme-secondary: #2C3E50;
-    --authme-accent: #2563eb;
-    --authme-bg: #FAFAFA;
-    --authme-text: #000000;
+  /* Primary colors */
+  --authme-primary: #f15e74;
+  --authme-secondary: #2c3e50;
+  --authme-accent: #2563eb;
+  --authme-bg: #fafafa;
+  --authme-text: #000000;
 
-    /* Status colors */
-    --authme-success: #16a34a;
-    --authme-success-hover: #15803d;
-    --authme-warning: #f59e0b;
-    --authme-error: #ea0124;
-    --authme-error-hover: #fca5a5;
+  /* Status colors */
+  --authme-success: #16a34a;
+  --authme-success-hover: #15803d;
+  --authme-warning: #f59e0b;
+  --authme-error: #ea0124;
+  --authme-error-hover: #fca5a5;
 
-    /* UI colors */
-    --authme-white: #ffffff;
-    --authme-card-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
-    --authme-border-light: #e9eef3;
-    --authme-border-default: #e2e8f0;
-    --authme-grey-light-text: #5a6e7c;
-    --authme-overlay-bg: rgba(0, 0, 0, 0.55);
-    --authme-primary-shadow: #F15E744D;
-    --authme-white-alpha: #ffffff4d;
+  /* UI colors */
+  --authme-white: #ffffff;
+  --authme-card-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
+  --authme-border-light: #e9eef3;
+  --authme-border-default: #e2e8f0;
+  --authme-grey-light-text: #5a6e7c;
+  --authme-overlay-bg: rgba(0, 0, 0, 0.55);
+  --authme-primary-shadow: #f15e744d;
+  --authme-white-alpha: #ffffff4d;
 
-    /* Light BGS */
-    --authme-light-yellow-bg: #fff2dc;
-    --authme-light-red-bg: #ffe6ea;
-    --authme-light-green-bg: #d5ffe5;
+  /* Light BGS */
+  --authme-light-yellow-bg: #fff2dc;
+  --authme-light-red-bg: #ffe6ea;
+  --authme-light-green-bg: #d5ffe5;
 
-    /* Dropdown specific */
-    --authme-dropdown-bg: #fdfdfd;
-    --authme-dropdown-hover: #f8fafc;
-    --authme-dropdown-text-main: #334155;
-    --authme-dropdown-text-mute: #64748b;
-    --authme-scrollbar-thumb: #e2e8f0;
+  /* Dropdown specific */
+  --authme-dropdown-bg: #fdfdfd;
+  --authme-dropdown-hover: #f8fafc;
+  --authme-dropdown-text-main: #334155;
+  --authme-dropdown-text-mute: #64748b;
+  --authme-scrollbar-thumb: #e2e8f0;
 }
 
 /* ============================================
@@ -58,186 +57,197 @@
  * ============================================ */
 
 /* Remove default browser/WordPress outline and focus shadow centrally */
-.authme-global-plugin-wrapper :is(
-    input[type="checkbox"], input[type="color"], input[type="date"], 
-    input[type="datetime-local"], input[type="datetime"], input[type="email"], 
-    input[type="month"], input[type="number"], input[type="password"], 
-    input[type="radio"], input[type="search"], input[type="tel"], 
-    input[type="text"], input[type="time"], input[type="url"], 
-    input[type="week"], select, textarea, a
-):is(:hover, :focus, :focus-visible, :active) {
-    outline: none !important;
-    box-shadow: unset !important;
+.authme-global-plugin-wrapper
+  :is(
+    input[type="checkbox"],
+    input[type="color"],
+    input[type="date"],
+    input[type="datetime-local"],
+    input[type="datetime"],
+    input[type="email"],
+    input[type="month"],
+    input[type="number"],
+    input[type="password"],
+    input[type="radio"],
+    input[type="search"],
+    input[type="tel"],
+    input[type="text"],
+    input[type="time"],
+    input[type="url"],
+    input[type="week"],
+    select,
+    textarea,
+    a
+  ):is(:hover, :focus, :focus-visible, :active) {
+  outline: none !important;
+  box-shadow: unset !important;
 }
 
 /* Reset WordPress default paragraph margin and set base typography color */
 .authme-global-plugin-wrapper {
-    box-sizing: border-box !important;
-    color: var(--authme-text);
-    font-family: var(--authme-font);
-    overflow-x: clip;
+  box-sizing: border-box !important;
+  color: var(--authme-text);
+  font-family: var(--authme-font);
+  overflow-x: clip;
 }
 
 .authme-global-plugin-wrapper * {
-    box-sizing: border-box !important;
-    margin: 0;
-    padding: 0;
-    line-height: 1.5;
-    font-family: inherit;
+  box-sizing: border-box !important;
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+  font-family: inherit;
 }
 
 /* Ensure WordPress admin notices don't break our layout */
-.authme-admin-notice-placeholder + .notice{
-    margin: 5px 0 15px 0 !important;
-    border-radius: 8px;
+.authme-admin-notice-placeholder + .notice {
+  margin: 5px 0 15px 0 !important;
+  border-radius: 8px;
 }
-
 
 /* Ensure the body is locked dusring the scrolling when popup is appear */
 html.authme-html-locked,
 body.authme-body-locked {
-    overflow: hidden !important;
-    height: 100% !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    touch-action: none;
+  overflow: hidden !important;
+  height: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  touch-action: none;
 }
-
-
 
 /* ============================================
  * Custom Country Dropdown
  * ============================================ */
 .authme-custom-dropdown {
-    position: relative;
-    width: 85px;
-    font-family: var(--authme-font);
+  position: relative;
+  width: 85px;
+  font-family: var(--authme-font);
 }
 
 .authme-dropdown-trigger {
-    width: 100%;
-    height: 48px;
-    padding: 0 1rem;
-    background: var(--authme-white);
-    border: 1.5px solid var(--authme-border-default);
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    font-size: 1.3rem;
-    color: var(--authme-text);
+  width: 100%;
+  height: 48px;
+  padding: 0 1rem;
+  background: var(--authme-white);
+  border: 1.5px solid var(--authme-border-default);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 1.3rem;
+  color: var(--authme-text);
 }
 
 .authme-dropdown-trigger:hover {
-    border-color: var(--authme-primary);
+  border-color: var(--authme-primary);
 }
 
 .authme-selected-flag {
-    font-size: 1.3rem;
-    margin-right: 4px;
+  font-size: 1.3rem;
+  margin-right: 4px;
 }
 
 .authme-selected-code {
-    font-weight: 500;
+  font-weight: 500;
 }
 
 .authme-dropdown-icon {
-    color: var(--authme-grey-light-text);
-    transition: transform 0.2s ease;
+  color: var(--authme-grey-light-text);
+  transition: transform 0.2s ease;
 }
 
 .authme-custom-dropdown.active .authme-dropdown-icon {
-    transform: rotate(180deg);
+  transform: rotate(180deg);
 }
 
 .authme-dropdown-menu {
-    position: absolute;
-    top: calc(100% + 8px);
-    left: 0;
-    width: 100%;
-    min-width: 220px;
-    max-width: 250px;
-    max-height: 250px;
-    background: var(--authme-white);
-    border-radius: 16px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
-    border: 1px solid var(--authme-border-light);
-    z-index: 1100;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  width: 100%;
+  min-width: 220px;
+  max-width: 250px;
+  max-height: 250px;
+  background: var(--authme-white);
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
+  border: 1px solid var(--authme-border-light);
+  z-index: 1100;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .authme-dropdown-search {
-    padding: 12px;
-    border-bottom: 1px solid var(--authme-border-light);
-    background: var(--authme-dropdown-bg);
+  padding: 12px;
+  border-bottom: 1px solid var(--authme-border-light);
+  background: var(--authme-dropdown-bg);
 }
 
 .authme-dropdown-search input {
-    width: 100% !important;
-    height: 38px;
-    padding: 0 12px !important;
-    border: 1.5px solid var(--authme-border-default) !important;
-    border-radius: 10px !important;
-    font-size: 14px !important;
-    transition: border-color 0.2s !important;
-    background: var(--authme-white);
-    color: var(--authme-text) !important;
+  width: 100% !important;
+  height: 38px;
+  padding: 0 12px !important;
+  border: 1.5px solid var(--authme-border-default) !important;
+  border-radius: 10px !important;
+  font-size: 14px !important;
+  transition: border-color 0.2s !important;
+  background: var(--authme-white);
+  color: var(--authme-text) !important;
 }
 
 .authme-dropdown-search input:focus {
-    border-color: var(--authme-primary);
-    outline: none;
+  border-color: var(--authme-primary);
+  outline: none;
 }
 
 .authme-dropdown-list {
-    list-style: none;
-    max-height: 280px;
-    overflow-y: auto;
-    padding: 4px 0;
-    margin: 0;
+  list-style: none;
+  max-height: 280px;
+  overflow-y: auto;
+  padding: 4px 0;
+  margin: 0;
 }
 
 /* Custom scrollbar */
 .authme-dropdown-list::-webkit-scrollbar {
-    width: 6px;
+  width: 6px;
 }
 
 .authme-dropdown-list::-webkit-scrollbar-thumb {
-    background: var(--authme-scrollbar-thumb);
-    border-radius: 10px;
+  background: var(--authme-scrollbar-thumb);
+  border-radius: 10px;
 }
 
 .authme-dropdown-item {
-    padding: 10px 16px;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    transition: background 0.2s;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: background 0.2s;
 }
 
 .authme-dropdown-item:hover {
-    background: var(--authme-dropdown-hover);
+  background: var(--authme-dropdown-hover);
 }
 
 .authme-dropdown-item .item-flag {
-    font-size: 20px;
-    margin-right: 12px;
+  font-size: 20px;
+  margin-right: 12px;
 }
 
 .authme-dropdown-item .item-name {
-    flex: 1;
-    font-size: 1.3rem;
-    line-height: 1.2em;
-    font-weight: 500;
-    color: var(--authme-dropdown-text-main);
+  flex: 1;
+  font-size: 1.3rem;
+  line-height: 1.2em;
+  font-weight: 500;
+  color: var(--authme-dropdown-text-main);
 }
 
 .authme-dropdown-item .item-code {
-    font-size: 1.2rem;
-    color: var(--authme-dropdown-text-mute);
-    font-weight: 400;
+  font-size: 1.2rem;
+  color: var(--authme-dropdown-text-mute);
+  font-weight: 400;
 }

@@ -3,292 +3,292 @@
  * ============================================ */
 
 .authme-users-header-section {
-    margin-bottom: 24px;
+  margin-bottom: 24px;
 }
 
 .authme-users-header-left {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    width: 100%;
-    background-color: var(--authme-white);
-    padding: 15px;
-    border-radius: 1rem;
-    box-shadow: var(--authme-card-shadow);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  background-color: var(--authme-white);
+  padding: 15px;
+  border-radius: 1rem;
+  box-shadow: var(--authme-card-shadow);
 }
 
 .authme-users-header-icon-box {
-    width: 48px;
-    height: 48px;
-    background-color: var(--authme-primary);
-    border-radius: 14px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: var(--authme-card-shadow);
+  width: 48px;
+  height: 48px;
+  background-color: var(--authme-primary);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--authme-card-shadow);
 }
 
 .authme-users-header-icon-svg {
-    width: 24px;
-    height: 24px;
-    color: var(--authme-white);
+  width: 24px;
+  height: 24px;
+  color: var(--authme-white);
 }
 
 .authme-users-header-text-group {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 
 .authme-users-page-title {
-    font-size: 1.75rem;
-    font-weight: 600;
-    color: var(--authme-secondary);
-    letter-spacing: -0.03em;
-    line-height: 1.2;
-    margin: 0;
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--authme-secondary);
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  margin: 0;
 }
 
 .authme-users-page-subtitle {
-    font-size: 0.8125rem;
-    color: var(--authme-grey-light-text);
-    font-weight: 500;
+  font-size: 0.8125rem;
+  color: var(--authme-grey-light-text);
+  font-weight: 500;
 }
 
 /* Search Section */
 .authme-users-search-section {
-    margin-bottom: 24px;
+  margin-bottom: 24px;
 }
 
 .authme-users-search-bar-wrapper {
-    background-color: var(--authme-white);
-    border-radius: 14px;
-    padding: 6px 8px 6px 22px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    box-shadow: var(--authme-card-shadow);
-    border: 2px solid var(--authme-border-light);
-    transition: all 0.3s ease;
+  background-color: var(--authme-white);
+  border-radius: 14px;
+  padding: 6px 8px 6px 22px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: var(--authme-card-shadow);
+  border: 2px solid var(--authme-border-light);
+  transition: all 0.3s ease;
 }
 
 .authme-users-search-bar-wrapper.authme-users-search-focused {
-    border-color: var(--authme-primary);
+  border-color: var(--authme-primary);
 }
 
 .authme-users-search-icon-svg {
-    width: 20px;
-    height: 20px;
-    color: var(--authme-grey-light-text);
+  width: 20px;
+  height: 20px;
+  color: var(--authme-grey-light-text);
 }
 
 .authme-users-search-input {
-    flex: 1;
-    border: none !important;
-    outline: none;
-    font-size: 0.9375rem;
-    color: var(--authme-text) !important;
-    background: transparent;
-    padding: 10px 0 !important;
+  flex: 1;
+  border: none !important;
+  outline: none;
+  font-size: 0.9375rem;
+  color: var(--authme-text) !important;
+  background: transparent;
+  padding: 10px 0 !important;
 }
 
 .authme-users-search-clear-btn {
-    width: 32px;
-    height: 32px;
-    border-radius: 8px;
-    border: none;
-    background-color: var(--authme-border-light);
-    color: var(--authme-grey-light-text);
-    cursor: pointer;
-    display: none;
-    align-items: center;
-    justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  border: none;
+  background-color: var(--authme-border-light);
+  color: var(--authme-grey-light-text);
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Table Section */
 .authme-users-table-section {
-    background: var(--authme-white);
-    border-radius: 18px;
-    box-shadow: var(--authme-card-shadow);
-    border: 1px solid var(--authme-border-light);
-    overflow: hidden;
+  background: var(--authme-white);
+  border-radius: 18px;
+  box-shadow: var(--authme-card-shadow);
+  border: 1px solid var(--authme-border-light);
+  overflow: hidden;
 }
 
 .authme-users-table-header-bar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1rem;
-    border-bottom: 1px solid var(--authme-border-light);
-    flex-wrap: wrap;
-    flex-direction: row;
-    gap: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  border-bottom: 1px solid var(--authme-border-light);
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 1rem;
 }
 
 .authme-users-table-actions-group {
-    gap: 1rem;
-    display: flex;
+  gap: 1rem;
+  display: flex;
 }
 
 .authme-users-table-section-title {
-    font-size: 1rem;
-    font-weight: 700;
-    color: var(--authme-secondary);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--authme-secondary);
 }
 
 .authme-users-table-section-subtitle {
-    font-size: 0.75rem;
-    color: var(--authme-grey-light-text);
-    display: block;
+  font-size: 0.75rem;
+  color: var(--authme-grey-light-text);
+  display: block;
 }
 
 .authme-users-filter-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 8px 14px;
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: var(--authme-grey-light-text);
-    background-color: var(--authme-bg);
-    border: 1px solid var(--authme-border-light);
-    border-radius: 8px;
-    cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--authme-grey-light-text);
+  background-color: var(--authme-bg);
+  border: 1px solid var(--authme-border-light);
+  border-radius: 8px;
+  cursor: pointer;
 }
 
 .authme-users-filter-btn-svg {
-    width: 14px;
-    height: 14px;
+  width: 14px;
+  height: 14px;
 }
 
 .authme-users-table-scroll {
-    overflow: auto;
+  overflow: auto;
 }
 
 .authme-users-data-table {
-    width: 100%;
-    min-width: 800px;
-    border-collapse: collapse;
+  width: 100%;
+  min-width: 800px;
+  border-collapse: collapse;
 }
 
 .authme-users-table-header {
-    background-color: var(--authme-bg);
+  background-color: var(--authme-bg);
 }
 
 .authme-users-table-header-cell {
-    padding: 14px 24px;
-    text-align: left;
-    font-size: 0.6875rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    color: var(--authme-grey-light-text);
-    border-bottom: 1px solid var(--authme-border-light);
+  padding: 14px 24px;
+  text-align: left;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--authme-grey-light-text);
+  border-bottom: 1px solid var(--authme-border-light);
 }
 
 .authme-users-table-body-row {
-    border-bottom: 1px solid var(--authme-border-light);
-    transition: background 0.2s;
+  border-bottom: 1px solid var(--authme-border-light);
+  transition: background 0.2s;
 }
 
 .authme-users-table-body-row:hover {
-    background-color: var(--authme-bg);
+  background-color: var(--authme-bg);
 }
 
 .authme-users-table-body-cell {
-    padding: 18px 24px;
-    vertical-align: middle;
+  padding: 18px 24px;
+  vertical-align: middle;
 }
 
 .authme-users-user-info {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .authme-users-user-fullname {
-    font-weight: 600;
-    color: var(--authme-secondary);
+  font-weight: 600;
+  color: var(--authme-secondary);
 }
 
 .authme-users-user-email {
-    font-size: 0.8rem;
-    color: var(--authme-grey-light-text);
+  font-size: 0.8rem;
+  color: var(--authme-grey-light-text);
 }
 
 .authme-users-action-btn {
-    padding: 8px 16px;
-    background-color: var(--authme-primary);
-    color: var(--authme-white) !important;
-    border: none;
-    border-radius: 8px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    cursor: pointer;
-    text-decoration: none;
-    display: inline-block;
-    transition: all 0.2s;
+  padding: 8px 16px;
+  background-color: var(--authme-primary);
+  color: var(--authme-white) !important;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.2s;
 }
 
 .authme-users-action-btn:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 4px 10px #F15E7433;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px #f15e7433;
 }
 
 /* Pagination */
 .authme-users-pagination-bar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 16px 24px;
-    border-top: 1px solid var(--authme-border-light);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  border-top: 1px solid var(--authme-border-light);
 }
 
 .authme-users-pagination-text {
-    font-size: 0.8rem;
-    color: var(--authme-grey-light-text);
+  font-size: 0.8rem;
+  color: var(--authme-grey-light-text);
 }
 
 .authme-users-pagination-controls {
-    display: flex;
-    align-items: center;
-    gap: 4px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
 
 #authme-users-page-numbers {
-    display: flex;
-    align-items: center;
-    gap: 4px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
 
 .authme-users-page-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 34px;
-    height: 34px;
-    border: 1px solid var(--authme-border-light);
-    background: var(--authme-white);
-    cursor: pointer;
-    border-radius: 8px;
-    font-weight: 600;
-    color: var(--authme-grey-light-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--authme-border-light);
+  background: var(--authme-white);
+  cursor: pointer;
+  border-radius: 8px;
+  font-weight: 600;
+  color: var(--authme-grey-light-text);
 }
 
 .authme-users-page-btn-active {
-    background-color: var(--authme-primary);
-    color: var(--authme-white);
-    border-color: var(--authme-primary);
+  background-color: var(--authme-primary);
+  color: var(--authme-white);
+  border-color: var(--authme-primary);
 }
 
 .authme-users-page-btn-disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 .authme-users-page-btn-svg {
-    width: 16px;
-    height: 16px;
+  width: 16px;
+  height: 16px;
 }
 
 .authme-users-col-actions {
-    text-align: right;
+  text-align: right;
 }

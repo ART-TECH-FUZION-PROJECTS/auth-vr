@@ -1,4 +1,5 @@
 <?php
+
 /**
  * AuthMe Forgot Password Screen Template
  *
@@ -8,7 +9,7 @@
  * @package AuthMe
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
+if (! defined('ABSPATH')) {
     exit;
 }
 ?>
@@ -24,7 +25,7 @@ if ( ! defined( 'ABSPATH' ) ) {
         <div class="authme-input-group">
             <label for="authme-forgot-identifier">Email / Username</label>
             <input type="text" id="authme-forgot-identifier" class="authme-input"
-                   placeholder="name@example.com or username" required>
+                placeholder="name@example.com or username" required>
             <span id="authme-forgot-identifier-msg" class="authme-field-msg"></span>
         </div>
 

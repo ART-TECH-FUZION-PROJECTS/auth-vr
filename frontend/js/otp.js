@@ -167,7 +167,9 @@
           } else if (purpose === "password_reset") {
             // Step 2c: OTP verified for password reset — go to new-password screen
             // Pass the verified email to the new-password form
-            var newPassEmailInput = document.getElementById("authme-new-password-email");
+            var newPassEmailInput = document.getElementById(
+              "authme-new-password-email",
+            );
             if (newPassEmailInput) {
               newPassEmailInput.value = email;
             }
